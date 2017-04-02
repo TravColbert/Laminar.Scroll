@@ -9,7 +9,7 @@ var Laminar = Laminar || {};
 
 /* General Idea: Make a list of all the elements that need to be aware of their
  * vertical positioning.
- * For each element, list the upper- and lower-range where and event should
+ * For each element, list the upper- and lower-range where an event should
  * happen.
  * Finally, give the function that should be called when the element enters the
  * sensitive area.
@@ -27,12 +27,13 @@ Laminar.Scroll = (function() {
     this.init(this);
   }
   Scroll.prototype.init = function(scrollObj) {
+    var that = this;
     this.scrollCheckLoop = setInterval(function() {
-      if(this.scrollOccured) {
-        this.checkBodyPosition();
-        this.scrollOccured = false;
+      if(that.scrollOccured) {
+        that.checkBodyPosition();
+        that.scrollOccured = false;
       }
-    }.bind(scrollObj), this.scrollTimeout);
+    }, this.scrollTimeout);
     return this;
   };
   Scroll.prototype.stop = function() {
@@ -43,10 +44,19 @@ Laminar.Scroll = (function() {
     this.scrollOccured = true;
     return this;
   };
+  Scroll.prototype.checkElementPosition = function(element,conditions) {
+    for(var c=0;c<conditions.length;c++) {
+      if(conditions[c].testFunc(element)) {
+        conditions[c].trueCallback(element);
+      } else {
+        conditions[c].falseCallback(element);
+      }
+    }
+  };
   Scroll.prototype.checkBodyPosition = function() {
     for(var i=0;i<this.elements.length;i++) {
       var element = this.elements[i];
-      var domElement = document.querySelector(element.elementSelector);
+      var domElement = (element.elementSelector instanceof Laminar.Widget) ? element.elementSelector : document.querySelector(element.elementSelector);
       for(var c=0;c<element.conditions.length;c++) {
         if(element.conditions[c].testFunc(domElement)) {
           element.conditions[c].trueCallback(domElement);
