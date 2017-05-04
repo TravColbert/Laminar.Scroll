@@ -39,6 +39,12 @@ Laminar.Scroll = (function() {
     this.scrollOccured = true;
     return this;
   };
+  Scroll.prototype.getDomElement = function(elementSelector) {
+    if(Laminar.Widget && (elementSelector instanceof Laminar.Widget)) {
+      return element.elementSelector;
+    }
+    return document.querySelector(elementSelector);
+  };
   Scroll.prototype.stop = function() {
     clearInterval(this.scrollCheckLoop);
     return this;
@@ -50,11 +56,7 @@ Laminar.Scroll = (function() {
   Scroll.prototype.checkBodyPosition = function() {
     for(var i=0;i<this.elements.length;i++) {
       var element = this.elements[i];
-      if(Laminar.Widget && (element.elementSelector instanceof Laminar.Widget)) {
-        var domElement = element.elementSelector;
-      } else {
-        var domElement = document.querySelector(element.elementSelector);
-      }
+      var domElement = this.getDomElement(element.elementSelector);
       for(var c=0;c<element.conditions.length;c++) {
         if(element.conditions[c].testFunc(domElement)) {
           if(element.conditions[c].hasOwnProperty("trueCallback")) element.conditions[c].trueCallback(domElement);
