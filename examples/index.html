@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+    <link rel="stylesheet" href="../../Libraries/normalize.css">
+    <link rel="stylesheet" href="../../Laminar.Layouts/laminar-base.css">
+    <style>
+      body {
+        /* background-attachment: fixed; */
+        background: url("../../sample_bg.jpg") no-repeat fixed center
+      }
+      #content {
+        /*background: none;*/
+      }
+      .bar {
+        color: #eee;
+        transition: all 1s
+      }
+      .highlighted {
+        background-color: #999;
+      }
+      .normal {
+        background: transparent;
+      }
+    </style>
+  </head>
+  <body class="layout-col">
+    <div id="content" class="layout-row layout-wrap layout-width-1-1 layout-height-1-1"></div>
+    <script src="../../Laminar.js/laminar.js"></script>
+    <script src="../laminar.scroll.js"></script>
+    <script src=""></script>
+    <script>
+      var scrollElements = [];
+      var windowBottom = document.querySelector("body").getBoundingClientRect()["bottom"];
+      for(var c=1; c<13; c++) {
+        var section = new Laminar.Widget({
+          id:"section" + c,
+          content:"This is section " + c,
+          classlist:["bar","layout-width-1-2","layout-height-1-2"],
+          statelist:["normal","highlighted"],
+          parent:"#content"
+        });
+        scrollElements.push({
+          elementSelector:section,
+          conditions:[
+            {
+              testFunc:function(domElement) {
+                var top = domElement.getBoundingTop();
+                var bottom = domElement.getHeight() + top;
+                //console.log("top:",top,"bottom",bottom);
+                return(top>=0 && bottom<=windowBottom);
+              },
+              trueCallback:function(domElement) {
+                domElement.setState("highlighted");
+              },
+              falseCallback:function(domElement) {
+                domElement.setState("normal");
+              }
+            }
+          ]
+        });
+      }
+      /*
+      var scrollElements = [
+        {
+        }
+
+      ];
+      */
+      var scroller = new Laminar.Scroll(scrollElements);
+    </script>
+  </body>
+</html>

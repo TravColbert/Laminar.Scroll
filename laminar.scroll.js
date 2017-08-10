@@ -41,7 +41,8 @@ Laminar.Scroll = (function() {
   };
   Scroll.prototype.getDomElement = function(elementSelector) {
     if(Laminar.Widget && (elementSelector instanceof Laminar.Widget)) {
-      return element.elementSelector;
+      //return element.elementSelector;
+      return elementSelector;
     }
     return document.querySelector(elementSelector);
   };
