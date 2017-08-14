@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title></title>
+    <title>Sample #2</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -11,29 +11,13 @@
     <!-- Place favicon.ico in the root directory -->
     <link rel="stylesheet" href="../../Libraries/normalize.css">
     <link rel="stylesheet" href="../../Laminar.Layouts/laminar-base.css">
-    <style>
-      body {
-        background: url("../../sample_bg.jpg") no-repeat fixed center;
-      }
-      .content {
-        height: 100vh;
-      }
-      .bar {
-        color: #eee;
-        transition: all 1s
-      }
-      .highlighted {
-        background-color: #999;
-      }
-      .normal {
-        background: transparent;
-      }
-    </style>
+    <style></style>
   </head>
-  <body class="layout-col">
-    <div id="firstbox" class="content layout-row layout-wrap layout-width-1-1 layout-height-1-1"></div>
-    <div id="secondbox" class="content layout-row layout-wrap layout-width-1-1 layout-height-1-1"></div>
-    <div id="secondbox" class="content layout-row layout-wrap layout-width-1-1 layout-height-1-1"></div>
+  <body class="layout-row">
+    <div class="layout-col layout-width-1-6 layout-height-1-1">
+      <div id="mainmenu">Hi There</div>
+    </div>
+    <div id="content" class="layout-row layout-wrap layout-width-5-6 layout-height-1-1"></div>
     <script src="../../Laminar.js/laminar.js"></script>
     <script src="../laminar.scroll.js"></script>
     <script src=""></script>
@@ -46,7 +30,7 @@
           content:"This is section " + c,
           classlist:["bar","layout-width-1-2","layout-height-1-2"],
           statelist:["normal","highlighted"],
-          parent:"#firstbox"
+          parent:"#content"
         });
         scrollElements.push({
           elementSelector:section,
@@ -55,6 +39,7 @@
               testFunc:function(domElement) {
                 var top = domElement.getBoundingTop();
                 var bottom = domElement.getHeight() + top;
+                //console.log("top:",top,"bottom",bottom);
                 return(top>=0 && bottom<=windowBottom);
               },
               trueCallback:function(domElement) {
