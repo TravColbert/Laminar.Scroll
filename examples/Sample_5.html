@@ -15,7 +15,7 @@
     <style>
       body {
         width: auto;
-        /* background: #f0f0f0; */
+        background: #f9f9f9;
         background-size: cover;
         transition: all 1s;
       }
@@ -25,7 +25,7 @@
       #menu {
         margin: 0 3em;
         padding: 0 3em 2.5em;
-        border-bottom: 1px solid silver;
+        /* border-bottom: 1px solid silver; */
       }
       #mainmenu > div {
         padding: 2em;
@@ -41,10 +41,25 @@
       #floatmenu {
         position: fixed;
         top: 0;
-        box-shadow: 0 0px 8px rgba(0,0,0,0.5);
+        /* box-shadow: 0 0px 8px rgba(0,0,0,0.5); */
+        /* border-bottom: 1ps solid silver; */
+        background: #fff;
+        z-index: 10;
       }
       #title {
         margin: 2.5em 0 1em;
+      }
+      #pointerslider {
+        margin: 0 3em;
+        padding: 0 3em 2.5em;
+      }
+      #pointer {
+        z-index: 5;
+        background: #fff;
+        height: 100px;
+        width: 100px;
+        transform:rotate(-45deg);
+        transform-origin: 0 100%;
       }
     </style>
   </head>
@@ -59,14 +74,17 @@
         <div id="linkcontact" class="link" data-link="contact">Contact</div>
       </div>
     </div>
+    <div id="pointerslider">
+      <div id="pointer"></div>
+    </div>
     <div id="mainmenu" class="layout-row layout-height-2-3">
       <div id="intro" class="copy layout-row">
+        <div class="layout-col layout-width-1-3"></div>
         <div class="layout-col layout-width-2-3 layout-justify-between">
           <div>Intro: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer scelerisque lorem eu ultrices varius. Aenean iaculis enim nec elit euismod ornare. Nulla euismod venenatis vestibulum. Aenean iaculis fringilla orci, vulputate placerat libero tincidunt ornare. Nunc congue id nibh ac dictum. Mauris suscipit blandit ipsum. Aliquam euismod leo ullamcorper nisi dapibus, in rutrum mauris vehicula. Suspendisse ac ligula tellus. Pellentesque rhoncus at lectus in mollis. Aliquam et aliquet velit. Etiam massa lectus, blandit non aliquam eget, mollis a metus. In sagittis quis urna sit amet aliquet. Suspendisse potenti. Cras elit magna, commodo id turpis a, ornare venenatis nunc. Duis in est eu augue placerat malesuada. Sed commodo dignissim tincidunt.</div>
           <div>picture</div>
           <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer scelerisque lorem eu ultrices varius. Aenean iaculis enim nec elit euismod ornare. Nulla euismod venenatis vestibulum. Aenean iaculis fringilla orci, vulputate placerat libero tincidunt ornare. Nunc congue id nibh ac dictum. Mauris suscipit blandit ipsum. Aliquam euismod leo ullamcorper nisi dapibus, in rutrum mauris vehicula. Suspendisse ac ligula tellus. Pellentesque rhoncus at lectus in mollis. Aliquam et aliquet velit. Etiam massa lectus, blandit non aliquam eget, mollis a metus. In sagittis quis urna sit amet aliquet. Suspendisse potenti. Cras elit magna, commodo id turpis a, ornare venenatis nunc. Duis in est eu augue placerat malesuada. Sed commodo dignissim tincidunt.</div>
         </div>
-        <div class="layout-col layout-width-1-3"></div>
       </div>
       <div id="programing" class="copy layout-col layout-justify-between">
         <div>Programing: In hac habitasse platea dictumst. Nam mattis vulputate metus, sed sodales ligula elementum eget. Nullam in massa tincidunt, ultrices turpis eget, consectetur lectus. Suspendisse vel venenatis massa. Sed sagittis vitae ex nec sodales. Proin nec nisi sagittis, venenatis nisi et, ullamcorper dui. Quisque pulvinar, tellus in ultricies auctor, enim dui tincidunt felis, eu finibus dui velit quis tellus. Nam faucibus sapien lacinia, imperdiet dui sit amet, malesuada felis. Nullam lacus sem, commodo vitae accumsan sed, varius quis turpis. Nam mollis pharetra massa, vitae rhoncus sem ullamcorper iaculis.</div>
