@@ -19,21 +19,21 @@
         background-size: cover;
         transition: all 1s;
       }
-      .bodyparts {
-        /* border: 1px solid silver; */
-      }
       #headerpart {
+        padding: 0 3em;
+      }
+      #menu {
         padding: 0 3em;
       }
       #mainmenu {
         padding: 0 3em 0 3em;
       }
-      #mainmenu > div,
-      #mainmenu > article {
+      #mainmenu > div {
         padding: 2em;
       }
       .copy {
         width: 80vw;
+        max-width: 800px;
         height: 100%;
         border-radius: 2px;
         /* border-top: 1px solid #e0e0e0; */
@@ -41,59 +41,47 @@
         /* box-shadow: 0 10px 20px rgba(0,0,0,0.4); */
         text-align:justify;
       }
-      #intro {
-        /* background: rgba(0,0,0,0.4); */
-      }
-      #programing {
-        /* background: fixed url("../../Backgrounds/bg_3.jpg");
-        background: rgba(0,0,0,0.8);
-        background-size: cover; */
-      }
-      #photography {
-        /* background: fixed url("../../Backgrounds/bg_2.jpg");
-        background: rgba(0,0,0,1);
-        background-size: cover; */
-      }
       #floatmenu {
         position: fixed;
         top: 5vh;
       }
     </style>
   </head>
-  <body id="thebody" class="layout-col">
-    <div id="headerpart" class="bodyparts layout-col layout-height-1-1 layout-justify-center">
-      <div id="floatmenu" class="layout-col">
-        <div id="title">Hi, this is the Float</div>
-        <div id="menu">
-          <div id="intro" class="link" data-link="intro">Intro</div>
-          <div id="linkprog" class="link" data-link="programing">Programing</div>
-          <div id="linkphotography" class="link" data-link="photography">Photography</div>
-          <div id="link" class="link" data-link="intro">Four</div>
-          <div id="linkcontact" class="link" data-link="contact">Contact</div>
-        </div>
+  <body id="thebody" class="layout-col layout-height-1-1 layout-justify-center">
+    <div id="floatmenu" class="layout-col layout-width-1-1 layout-align-center">
+      <div id="title">Hi, this is the Float</div>
+      <div id="menu" class="layout-row layout-width-1-1 layout-justify-around">
+        <div id="intro" class="link layout-" data-link="intro">Intro</div>
+        <div id="linkprog" class="link" data-link="programing">Programing</div>
+        <div id="linkphotography" class="link" data-link="photography">Photography</div>
+        <div id="link" class="link" data-link="intro">Four</div>
+        <div id="linkcontact" class="link" data-link="contact">Contact</div>
       </div>
-      <div id="mainmenu" class="bodyparts layout-row layout-height-2-3">
-        <div id="intro" class="copy layout-col layout-justify-between">
+    </div>
+    <div id="mainmenu" class="bodyparts layout-row layout-height-2-3">
+      <div id="intro" class="copy layout-row">
+        <div class="layout-col layout-width-2-3 layout-justify-between">
           <div>Intro: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer scelerisque lorem eu ultrices varius. Aenean iaculis enim nec elit euismod ornare. Nulla euismod venenatis vestibulum. Aenean iaculis fringilla orci, vulputate placerat libero tincidunt ornare. Nunc congue id nibh ac dictum. Mauris suscipit blandit ipsum. Aliquam euismod leo ullamcorper nisi dapibus, in rutrum mauris vehicula. Suspendisse ac ligula tellus. Pellentesque rhoncus at lectus in mollis. Aliquam et aliquet velit. Etiam massa lectus, blandit non aliquam eget, mollis a metus. In sagittis quis urna sit amet aliquet. Suspendisse potenti. Cras elit magna, commodo id turpis a, ornare venenatis nunc. Duis in est eu augue placerat malesuada. Sed commodo dignissim tincidunt.</div>
           <div>picture</div>
           <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer scelerisque lorem eu ultrices varius. Aenean iaculis enim nec elit euismod ornare. Nulla euismod venenatis vestibulum. Aenean iaculis fringilla orci, vulputate placerat libero tincidunt ornare. Nunc congue id nibh ac dictum. Mauris suscipit blandit ipsum. Aliquam euismod leo ullamcorper nisi dapibus, in rutrum mauris vehicula. Suspendisse ac ligula tellus. Pellentesque rhoncus at lectus in mollis. Aliquam et aliquet velit. Etiam massa lectus, blandit non aliquam eget, mollis a metus. In sagittis quis urna sit amet aliquet. Suspendisse potenti. Cras elit magna, commodo id turpis a, ornare venenatis nunc. Duis in est eu augue placerat malesuada. Sed commodo dignissim tincidunt.</div>
         </div>
-        <div id="programing" class="copy layout-col layout-justify-between">
-          <div>Programing: In hac habitasse platea dictumst. Nam mattis vulputate metus, sed sodales ligula elementum eget. Nullam in massa tincidunt, ultrices turpis eget, consectetur lectus. Suspendisse vel venenatis massa. Sed sagittis vitae ex nec sodales. Proin nec nisi sagittis, venenatis nisi et, ullamcorper dui. Quisque pulvinar, tellus in ultricies auctor, enim dui tincidunt felis, eu finibus dui velit quis tellus. Nam faucibus sapien lacinia, imperdiet dui sit amet, malesuada felis. Nullam lacus sem, commodo vitae accumsan sed, varius quis turpis. Nam mollis pharetra massa, vitae rhoncus sem ullamcorper iaculis.</div>
-          <div>picture</div>
-          <div>In hac habitasse platea dictumst. Nam mattis vulputate metus, sed sodales ligula elementum eget. Nullam in massa tincidunt, ultrices turpis eget, consectetur lectus. Suspendisse vel venenatis massa. Sed sagittis vitae ex nec sodales. Proin nec nisi sagittis, venenatis nisi et, ullamcorper dui. Quisque pulvinar, tellus in ultricies auctor, enim dui tincidunt felis, eu finibus dui velit quis tellus. Nam faucibus sapien lacinia, imperdiet dui sit amet, malesuada felis. Nullam lacus sem, commodo vitae accumsan sed, varius quis turpis. Nam mollis pharetra massa, vitae rhoncus sem ullamcorper iaculis.</div>
-        </div>
-        <div id="photography" class="copy layout-col layout-justify-between">
-          <div>Photography: Nunc pellentesque, nibh nec aliquet laoreet, nulla purus pulvinar tellus, id ullamcorper velit metus in libero. Nam hendrerit nec sem sed consequat. Maecenas condimentum sodales metus, nec facilisis turpis facilisis quis. Vestibulum facilisis magna et leo tincidunt, id viverra tellus elementum. Nulla ultricies sem et diam semper vehicula. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut blandit elementum dui nec finibus. Aliquam erat volutpat. Phasellus sem quam, tincidunt vel justo eget, sagittis pharetra nisl. Vivamus ultrices auctor odio, nec dictum tortor vulputate a. Etiam varius augue tempus semper rhoncus. Aliquam efficitur mauris et dignissim dignissim.</div>
-          <div>picture</div>
-          <div>Proin mollis pulvinar vulputate. Curabitur suscipit tempor tellus, vel semper arcu. Praesent vel nisi imperdiet, dictum neque nec, pellentesque massa. Phasellus eu ornare tortor, non malesuada massa. Phasellus cursus, justo et laoreet maximus, neque orci finibus tellus, ut viverra neque augue in tellus. Fusce volutpat tincidunt massa, id laoreet augue lacinia et. Donec id iaculis dolor, et blandit nulla. Nullam vitae quam sed purus tempus gravida. Proin elementum magna nisl, at vulputate tellus egestas vitae. Etiam nisl massa, mattis in volutpat sed, elementum et diam. Mauris scelerisque sem eu lorem lobortis accumsan. Sed dapibus aliquam lacus, condimentum gravida lorem ultricies ac. Quisque accumsan quam vel nulla consectetur pretium. Morbi sed luctus odio. Aenean sodales elit nulla, vitae finibus libero scelerisque nec. Phasellus consequat ex ac sem euismod interdum.</div>
-        </div>
-        <div class="copy">Vivamus volutpat neque vitae suscipit eleifend. Curabitur consectetur maximus odio a laoreet. Vestibulum in sem tristique purus ullamcorper pellentesque. Vivamus nec urna diam. Suspendisse non gravida dui. Quisque quis fringilla eros. Mauris rhoncus, velit vitae euismod maximus, diam leo pulvinar leo, vel imperdiet sem massa eu ex. Donec dui dui, tempus ac massa at, eleifend euismod est. Aenean dictum vitae justo non faucibus. Integer volutpat semper lacinia. Praesent ligula justo, maximus a pharetra eget, ultrices in diam. Ut ornare quis orci id scelerisque.</div>
-        <div id="contact"  class="copy layout-col layout-justify-between">
-          <div>Contact: Proin mollis pulvinar vulputate. Curabitur suscipit tempor tellus, vel semper arcu. Praesent vel nisi imperdiet, dictum neque nec, pellentesque massa. Phasellus eu ornare tortor, non malesuada massa. Phasellus cursus, justo et laoreet maximus, neque orci finibus tellus, ut viverra neque augue in tellus. Fusce volutpat tincidunt massa, id laoreet augue lacinia et. Donec id iaculis dolor, et blandit nulla. Nullam vitae quam sed purus tempus gravida. Proin elementum magna nisl, at vulputate tellus egestas vitae. Etiam nisl massa, mattis in volutpat sed, elementum et diam. Mauris scelerisque sem eu lorem lobortis accumsan. Sed dapibus aliquam lacus, condimentum gravida lorem ultricies ac. Quisque accumsan quam vel nulla consectetur pretium. Morbi sed luctus odio. Aenean sodales elit nulla, vitae finibus libero scelerisque nec. Phasellus consequat ex ac sem euismod interdum.</div>
-          <div>picture</div>
-          <div>Proin mollis pulvinar vulputate. Curabitur suscipit tempor tellus, vel semper arcu. Praesent vel nisi imperdiet, dictum neque nec, pellentesque massa. Phasellus eu ornare tortor, non malesuada massa. Phasellus cursus, justo et laoreet maximus, neque orci finibus tellus, ut viverra neque augue in tellus. Fusce volutpat tincidunt massa, id laoreet augue lacinia et. Donec id iaculis dolor, et blandit nulla. Nullam vitae quam sed purus tempus gravida. Proin elementum magna nisl, at vulputate tellus egestas vitae. Etiam nisl massa, mattis in volutpat sed, elementum et diam. Mauris scelerisque sem eu lorem lobortis accumsan. Sed dapibus aliquam lacus, condimentum gravida lorem ultricies ac. Quisque accumsan quam vel nulla consectetur pretium. Morbi sed luctus odio. Aenean sodales elit nulla, vitae finibus libero scelerisque nec. Phasellus consequat ex ac sem euismod interdum.</div>
-        </div>
+        <div class="layout-col layout-width-1-3"></div>
+      </div>
+      <div id="programing" class="copy layout-col layout-justify-between">
+        <div>Programing: In hac habitasse platea dictumst. Nam mattis vulputate metus, sed sodales ligula elementum eget. Nullam in massa tincidunt, ultrices turpis eget, consectetur lectus. Suspendisse vel venenatis massa. Sed sagittis vitae ex nec sodales. Proin nec nisi sagittis, venenatis nisi et, ullamcorper dui. Quisque pulvinar, tellus in ultricies auctor, enim dui tincidunt felis, eu finibus dui velit quis tellus. Nam faucibus sapien lacinia, imperdiet dui sit amet, malesuada felis. Nullam lacus sem, commodo vitae accumsan sed, varius quis turpis. Nam mollis pharetra massa, vitae rhoncus sem ullamcorper iaculis.</div>
+        <div>picture</div>
+        <div>In hac habitasse platea dictumst. Nam mattis vulputate metus, sed sodales ligula elementum eget. Nullam in massa tincidunt, ultrices turpis eget, consectetur lectus. Suspendisse vel venenatis massa. Sed sagittis vitae ex nec sodales. Proin nec nisi sagittis, venenatis nisi et, ullamcorper dui. Quisque pulvinar, tellus in ultricies auctor, enim dui tincidunt felis, eu finibus dui velit quis tellus. Nam faucibus sapien lacinia, imperdiet dui sit amet, malesuada felis. Nullam lacus sem, commodo vitae accumsan sed, varius quis turpis. Nam mollis pharetra massa, vitae rhoncus sem ullamcorper iaculis.</div>
+      </div>
+      <div id="photography" class="copy layout-col layout-justify-between">
+        <div>Photography: Nunc pellentesque, nibh nec aliquet laoreet, nulla purus pulvinar tellus, id ullamcorper velit metus in libero. Nam hendrerit nec sem sed consequat. Maecenas condimentum sodales metus, nec facilisis turpis facilisis quis. Vestibulum facilisis magna et leo tincidunt, id viverra tellus elementum. Nulla ultricies sem et diam semper vehicula. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut blandit elementum dui nec finibus. Aliquam erat volutpat. Phasellus sem quam, tincidunt vel justo eget, sagittis pharetra nisl. Vivamus ultrices auctor odio, nec dictum tortor vulputate a. Etiam varius augue tempus semper rhoncus. Aliquam efficitur mauris et dignissim dignissim.</div>
+        <div>picture</div>
+        <div>Proin mollis pulvinar vulputate. Curabitur suscipit tempor tellus, vel semper arcu. Praesent vel nisi imperdiet, dictum neque nec, pellentesque massa. Phasellus eu ornare tortor, non malesuada massa. Phasellus cursus, justo et laoreet maximus, neque orci finibus tellus, ut viverra neque augue in tellus. Fusce volutpat tincidunt massa, id laoreet augue lacinia et. Donec id iaculis dolor, et blandit nulla. Nullam vitae quam sed purus tempus gravida. Proin elementum magna nisl, at vulputate tellus egestas vitae. Etiam nisl massa, mattis in volutpat sed, elementum et diam. Mauris scelerisque sem eu lorem lobortis accumsan. Sed dapibus aliquam lacus, condimentum gravida lorem ultricies ac. Quisque accumsan quam vel nulla consectetur pretium. Morbi sed luctus odio. Aenean sodales elit nulla, vitae finibus libero scelerisque nec. Phasellus consequat ex ac sem euismod interdum.</div>
+      </div>
+      <div class="copy">Vivamus volutpat neque vitae suscipit eleifend. Curabitur consectetur maximus odio a laoreet. Vestibulum in sem tristique purus ullamcorper pellentesque. Vivamus nec urna diam. Suspendisse non gravida dui. Quisque quis fringilla eros. Mauris rhoncus, velit vitae euismod maximus, diam leo pulvinar leo, vel imperdiet sem massa eu ex. Donec dui dui, tempus ac massa at, eleifend euismod est. Aenean dictum vitae justo non faucibus. Integer volutpat semper lacinia. Praesent ligula justo, maximus a pharetra eget, ultrices in diam. Ut ornare quis orci id scelerisque.</div>
+      <div id="contact"  class="copy layout-col layout-justify-between">
+        <div>Contact: Proin mollis pulvinar vulputate. Curabitur suscipit tempor tellus, vel semper arcu. Praesent vel nisi imperdiet, dictum neque nec, pellentesque massa. Phasellus eu ornare tortor, non malesuada massa. Phasellus cursus, justo et laoreet maximus, neque orci finibus tellus, ut viverra neque augue in tellus. Fusce volutpat tincidunt massa, id laoreet augue lacinia et. Donec id iaculis dolor, et blandit nulla. Nullam vitae quam sed purus tempus gravida. Proin elementum magna nisl, at vulputate tellus egestas vitae. Etiam nisl massa, mattis in volutpat sed, elementum et diam. Mauris scelerisque sem eu lorem lobortis accumsan. Sed dapibus aliquam lacus, condimentum gravida lorem ultricies ac. Quisque accumsan quam vel nulla consectetur pretium. Morbi sed luctus odio. Aenean sodales elit nulla, vitae finibus libero scelerisque nec. Phasellus consequat ex ac sem euismod interdum.</div>
+        <div>picture</div>
+        <div>Proin mollis pulvinar vulputate. Curabitur suscipit tempor tellus, vel semper arcu. Praesent vel nisi imperdiet, dictum neque nec, pellentesque massa. Phasellus eu ornare tortor, non malesuada massa. Phasellus cursus, justo et laoreet maximus, neque orci finibus tellus, ut viverra neque augue in tellus. Fusce volutpat tincidunt massa, id laoreet augue lacinia et. Donec id iaculis dolor, et blandit nulla. Nullam vitae quam sed purus tempus gravida. Proin elementum magna nisl, at vulputate tellus egestas vitae. Etiam nisl massa, mattis in volutpat sed, elementum et diam. Mauris scelerisque sem eu lorem lobortis accumsan. Sed dapibus aliquam lacus, condimentum gravida lorem ultricies ac. Quisque accumsan quam vel nulla consectetur pretium. Morbi sed luctus odio. Aenean sodales elit nulla, vitae finibus libero scelerisque nec. Phasellus consequat ex ac sem euismod interdum.</div>
       </div>
     </div>
     <script src="../../Laminar.js/laminar.js"></script>
@@ -117,19 +105,6 @@
             document.getElementById('thebody').attachEvent("onmousewheel", scrollHorizontally);
         }
       })();
-
-      /*
-      function getOffset( el ) {
-          var _x = 0;
-          var _y = 0;
-          while( el && !isNaN( el.offsetLeft ) && !isNaN( el.offsetTop ) ) {
-              _x += el.offsetLeft - el.scrollLeft;
-              _y += el.offsetTop - el.scrollTop;
-              el = el.offsetParent;
-          }
-          return { top: _y, left: _x };
-      }
-      */
 
       var getOffset = function(element) {
         var top = 0, left = 0;
