@@ -23,10 +23,9 @@
         padding: 0 3em;
       }
       #menu {
-        padding: 0 3em;
-      }
-      #mainmenu {
-        padding: 0 3em 0 3em;
+        margin: 0 3em;
+        padding: 0 3em 2.5em;
+        border-bottom: 1px solid silver;
       }
       #mainmenu > div {
         padding: 2em;
@@ -36,18 +35,20 @@
         max-width: 800px;
         height: 100%;
         border-radius: 2px;
-        /* border-top: 1px solid #e0e0e0; */
         margin: 0 8px;
-        /* box-shadow: 0 10px 20px rgba(0,0,0,0.4); */
         text-align:justify;
       }
       #floatmenu {
         position: fixed;
-        top: 5vh;
+        top: 0;
+        box-shadow: 0 0px 8px rgba(0,0,0,0.5);
+      }
+      #title {
+        margin: 2.5em 0 1em;
       }
     </style>
   </head>
-  <body id="thebody" class="layout-col layout-height-1-1 layout-justify-center">
+  <body id="thebody" class="layout-col layout-justify-center">
     <div id="floatmenu" class="layout-col layout-width-1-1 layout-align-center">
       <div id="title">Hi, this is the Float</div>
       <div id="menu" class="layout-row layout-width-1-1 layout-justify-around">
@@ -58,7 +59,7 @@
         <div id="linkcontact" class="link" data-link="contact">Contact</div>
       </div>
     </div>
-    <div id="mainmenu" class="bodyparts layout-row layout-height-2-3">
+    <div id="mainmenu" class="layout-row layout-height-2-3">
       <div id="intro" class="copy layout-row">
         <div class="layout-col layout-width-2-3 layout-justify-between">
           <div>Intro: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer scelerisque lorem eu ultrices varius. Aenean iaculis enim nec elit euismod ornare. Nulla euismod venenatis vestibulum. Aenean iaculis fringilla orci, vulputate placerat libero tincidunt ornare. Nunc congue id nibh ac dictum. Mauris suscipit blandit ipsum. Aliquam euismod leo ullamcorper nisi dapibus, in rutrum mauris vehicula. Suspendisse ac ligula tellus. Pellentesque rhoncus at lectus in mollis. Aliquam et aliquet velit. Etiam massa lectus, blandit non aliquam eget, mollis a metus. In sagittis quis urna sit amet aliquet. Suspendisse potenti. Cras elit magna, commodo id turpis a, ornare venenatis nunc. Duis in est eu augue placerat malesuada. Sed commodo dignissim tincidunt.</div>
