@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Sample #5</title>
+    <title>Sample #6</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -44,7 +44,7 @@
         position: absolute;
         transition: all 1s;
       }
-      .slid {
+      .slider {
         left: 100%;
       }
       .unslid {
@@ -63,9 +63,9 @@
         <div id="linkcontact" class="link" data-link="contact">Contact</div>
       </div>
     </div>
-    <div id="transitionlayer" class="page slid">Transition</div>
-    <div id="page1" class="page slid">Page 1</div>
-    <div id="page2" class="page slid">Page 2</div>
+    <div id="transitionlayer" class="page slider">Transition</div>
+    <div id="page1" class="page slider">Page 1</div>
+    <div id="page2" class="page slider">Page 2</div>
     <!--
     <div id="floatmenu" class="layout-col layout-width-1-1 layout-align-center">
     </div>
@@ -97,27 +97,10 @@
     </div>
     -->
     <script src="../../Laminar.js/laminar.js"></script>
+    <script src="../../Laminar.js/laminar.model.js"></script>
     <script src="../laminar.scroll.js"></script>
     <script src=""></script>
     <script>
-      (function() {
-        function scrollHorizontally(e) {
-            e = window.event || e;
-            var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
-            document.getElementById('thebody').scrollLeft -= (delta*40); // Multiplied by 40
-            e.preventDefault();
-        }
-        if (document.getElementById('thebody').addEventListener) {
-            // IE9, Chrome, Safari, Opera
-            document.getElementById('thebody').addEventListener("mousewheel", scrollHorizontally, false);
-            // Firefox
-            document.getElementById('thebody').addEventListener("DOMMouseScroll", scrollHorizontally, false);
-        } else {
-            // IE 6/7/8
-            document.getElementById('thebody').attachEvent("onmousewheel", scrollHorizontally);
-        }
-      })();
-
       var getOffset = function(element) {
         var top = 0, left = 0;
         do {
@@ -131,6 +114,35 @@
             left: left
         };
       }
+
+      // Make a Laminar model that tracks the state of the app
+      var state = Laminar.createModel({
+        state:'home'
+      });
+      var stateTriggers = state.__getHandlerObject();
+      
+      // Make all of the sliding layers a Laminar object
+      var sliders = document.querySelectorAll(".slider");
+      for(var c=0; c<sliders.length; c++) {
+        var panel = new Laminar.Widget(panel);
+        console.log("setting change trigger for",panel.getId());
+        var checkState = (function(p) {
+          return function(target,property) {
+            //console.log(this.getId());
+            console.log("panel",p.getId(),"says state is",state.state);
+            // (Un)Set the class to 'unslid' if the right state is set
+            if(property=="state" && target[property]==p.getId()) {
+              p.addClass("unslid");
+            } else {
+              p.removeClass("unslid");
+            }
+          }
+        })(panel);
+        // Make each panel listen to the 'state' object
+        stateTriggers.addHandler("change", checkState);
+      }
+
+
 
       var links = document.querySelectorAll(".link");
       var sections = document.querySelectorAll(".copy");
