@@ -59,7 +59,7 @@
         height: 100px;
         width: 100px;
         transform:rotate(-45deg);
-        transform-origin: 0 100%;
+        transform-origin: 50% 100%;
       }
     </style>
   </head>
@@ -147,7 +147,7 @@
 
       for(var c=0;c<links.length;c++) {
         var link = new Laminar.Widget(links[c]);
-        link.listenEvent("click",function(e,obj) {          
+        link.listenEvent("click",function(e,obj) {
           var targetArticleId = obj.getData("link");
           var hPosX = getOffset(document.getElementById(targetArticleId)).left;
           console.log(targetArticleId,":hPos:",hPosX," Window:",window.scrollX," First position:",firstPosition," Scroll to (",hPosX,"+",window.scrollX,")");

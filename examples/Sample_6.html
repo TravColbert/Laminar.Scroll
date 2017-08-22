@@ -124,12 +124,9 @@
       // Make all of the sliding layers a Laminar object
       var sliders = document.querySelectorAll(".slider");
       for(var c=0; c<sliders.length; c++) {
-        var panel = new Laminar.Widget(panel);
-        console.log("setting change trigger for",panel.getId());
+        var panel = new Laminar.Widget(sliders[c]);
         var checkState = (function(p) {
           return function(target,property) {
-            //console.log(this.getId());
-            console.log("panel",p.getId(),"says state is",state.state);
             // (Un)Set the class to 'unslid' if the right state is set
             if(property=="state" && target[property]==p.getId()) {
               p.addClass("unslid");
