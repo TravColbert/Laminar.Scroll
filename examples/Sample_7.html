@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Sample #6</title>
+    <title>Sample #7</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -27,19 +27,19 @@
       #base_layout,
       #transitionlayer,
       .page {
-        height: 100%;
+        width: 100%;
         display: flex;
         position: absolute;
       }
       #base_layout {
         z-index: 0;
-        width: 100%;
+        height: 100%;
       }
       #transitionlayer {
         z-index: 1;
         background: rgba(204, 164, 59, 0);
         transition: all 0.5s;
-        width: 100%;
+        height: 100%;
       }
       #page1 {
         z-index: 10;
@@ -53,7 +53,7 @@
       }
       .page {
         padding: 1em;
-        width: 75%;
+        height: 75%;
         /* These transition times seem backwards but they aren't
          * Transition times are calculated after the CSS even has 
          * been triggered (e.g. a CSS class has been modified
@@ -65,16 +65,16 @@
       }
       .slider,
       .shutter {
-        left: 100%;
+        top: 100%;
       }
       .unslid {
-        left: 25%;
+        top: 25%;
         transition: all 1.5s;
-        border-left: 2px solid;
+        border-top: 2px solid;
         /* box-shadow: 0 0 10px rgba(0,0,0,0.8); */
       }
       #transitionlayer.unslid {
-        left: 0%;
+        top: 0%;
         background: rgba(204, 164, 59, 1);
       }
       #title {
