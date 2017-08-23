@@ -80,6 +80,7 @@
       #title {
         padding: 1em 0;
         background: #58A4B0;
+        max-height: 100vw;
       }
       #subtitle,
       #maintitle,
@@ -96,15 +97,22 @@
         background-position: center;
         height: 200px;
         width: 200px;
-        /* border: 1px solid rgb(100,100,100); */
+        max-height: 50vw;
+        max-width: 50vw;
+        border: 2px solid rgba(255,255,255,1);
         border-radius: 50%;
-        /* box-shadow: 0 3px 20px rgba(0,0,0,0.6); */
+        box-shadow: 0 0px 20px rgba(255,255,255,0.6);
       }
       #maintitle {
         font-size: 4em;
       }
       #blurb {
-        font-size: 1.5em;
+        font-size: 1.25em;
+        border-top: 1px solid white;
+        border-bottom: 1px solid white;
+        padding: 0.25em;
+        margin-top: 0.7em;
+        letter-spacing: 4.5px;
       }
       .link {
         border-radius: 2px;
@@ -121,10 +129,10 @@
       <div id="title" class="layout-col layout-height-1-2 layout-justify-center layout-align-center">
         <!-- <div id="subtitle">Hi, this is the Float</div> -->
         <div id="portrait"></div>
-        <div id="maintitle">Jimmy Jammer</div>
+        <div id="maintitle">Argyle Cat</div>
         <div id="blurb">Let's Build Something</div>
       </div>
-      <div id="menu" class="layout-row layout-width-1-1 layout-height-1-2 layout-justify-around layout-align-center">
+      <div id="menu" class="layout-row layout-wrap layout-width-1-1 layout-height-1-2 layout-justify-around layout-align-center">
         <div id="intro" class="link layout-" data-link="intro">Intro</div>
         <div id="linkprog" class="link" data-link="programing">Programing</div>
         <div id="linkphotography" class="link" data-link="photography">Photography</div>
