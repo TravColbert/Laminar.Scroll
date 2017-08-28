@@ -73,6 +73,7 @@
         background: #58A4B0;
         height: 50vh;
         max-height: 100vw;
+        box-shadow: 0 3px 5px rgba(0,0,0,0.5);
       }
       #subtitle,
       #maintitle,
@@ -137,10 +138,12 @@
   <body id="main">
     <div id="base_layout" class="layout-col">
       <div id="title" class="layout-col layout-justify-center layout-align-center">
-        <!-- <div id="subtitle">Hi, this is the Float</div> -->
-        <div id="portrait"></div>
-        <div id="maintitle">Argyle Cat</div>
-        <div id="blurb">Let's Build Something</div>
+        <div class="layout-height-1-1 layout-width-sd layout-col layout-justify-center layout-align-center">
+          <!-- <div id="subtitle">Hi, this is the Float</div> -->
+          <div id="portrait"></div>
+          <div id="maintitle">Argyle Cat</div>
+          <div id="blurb" class="layout-align-center">Let's Build Something</div>
+        </div>
       </div>
       <div id="menu" class="layout-row layout-wrap layout-width-1-1 layout-justify-around layout-align-center">
         <!-- <div id="home" class="link" data-linkto="home">Home</div> -->
