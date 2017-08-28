@@ -41,23 +41,14 @@
         transition: all 0.5s;
         height: 100%;
       }
-      #page1 {
-        z-index: 10;
-        /* background: rgba(100,200,100,0.8); */
-        border-color: rgb(100,200,100);
-      }
-      #page2 {
-        z-index: 20;
-        /* background: rgba(100,100,200,0.3); */
-        border-color: rgb(100,100,200);
-      }
       .page {
+        z-index: 20;
         padding: 1em;
         height: 75%;
         /* These transition times seem backwards but they aren't
-         * Transition times are calculated after the CSS even has 
+         * Transition times are calculated after the CSS even has
          * been triggered (e.g. a CSS class has been modified
-         * So, the below transition time triggers when the page 
+         * So, the below transition time triggers when the page
          * wants to CLOSE, not when it opens.
          */
         transition: all 0.3s;
@@ -68,18 +59,19 @@
         top: 100%;
       }
       .unslid {
-        top: 25%;
-        transition: all 1.5s;
-        border-top: 2px solid;
+        top: 50%;
+        transition: all 1s;
+        /* border-top: 2px solid; */
         /* box-shadow: 0 0 10px rgba(0,0,0,0.8); */
       }
       #transitionlayer.unslid {
         top: 0%;
-        background: rgba(204, 164, 59, 1);
+        background: rgba(255,255,255, 0.7);
       }
       #title {
         padding: 1em 0;
         background: #58A4B0;
+        height: 50vh;
         max-height: 100vw;
       }
       #subtitle,
@@ -114,6 +106,9 @@
         margin-top: 0.7em;
         letter-spacing: 4.5px;
       }
+      #menu {
+        padding: 1em 0;
+      }
       .link {
         border-radius: 2px;
         border: 2px solid #58A4B0;
@@ -122,26 +117,47 @@
         color: #58A4B0;
         /* box-shadow: 0 3px 20px rgba(0,0,0,0.6); */
       }
+      #navigation {
+        z-index: 99;
+        height: 10vh;
+        width: 100%;
+        position: absolute;
+        /*margin-top: -5vh;*/
+        transition: all 0.6s;
+      }
+      #navigation.unslid {
+        top: 50%;
+        margin-top: -5vh;
+      }
+      #navigation .link {
+        background: rgba(255,255,255,0.8);
+      }
     </style>
   </head>
   <body id="main">
     <div id="base_layout" class="layout-col">
-      <div id="title" class="layout-col layout-height-1-2 layout-justify-center layout-align-center">
+      <div id="title" class="layout-col layout-justify-center layout-align-center">
         <!-- <div id="subtitle">Hi, this is the Float</div> -->
         <div id="portrait"></div>
         <div id="maintitle">Argyle Cat</div>
         <div id="blurb">Let's Build Something</div>
       </div>
-      <div id="menu" class="layout-row layout-wrap layout-width-1-1 layout-height-1-2 layout-justify-around layout-align-center">
-        <div id="intro" class="link layout-" data-link="intro">Intro</div>
-        <div id="linkprog" class="link" data-link="programing">Programing</div>
-        <div id="linkphotography" class="link" data-link="photography">Photography</div>
-        <div id="link" class="link" data-link="intro">Four</div>
-        <div id="linkcontact" class="link" data-link="contact">Contact</div>
+      <div id="menu" class="layout-row layout-wrap layout-width-1-1 layout-justify-around layout-align-center">
+        <!-- <div id="home" class="link" data-linkto="home">Home</div> -->
+        <div id="linkprog" class="link" data-linkto="skills">Skills</div>
+        <div id="linkphotography" class="link" data-linkto="projects">Projects</div>
+        <div id="link" class="link" data-linkto="about">About</div>
+      </div>
+      <div class="layout-col">
+        <div>I specialize in building custom, highly-vertical web and hybrid applications.</div>
+        <div>HTML5, Javascript, CSS3, Linux and the BASH shell are good friends of mine.</div>
+        <div>I have completed big networking and development projects in 5 countries.</div>
+        <div>Most importantly, I'm a geek that actually prefers good communication. I like people and I believe that honest communication and knowledge-sharing makes everyone better.</div>
+        <div>I am currently living in Bangkok, Thailand.</div>
       </div>
     </div>
     <div id="transitionlayer" class="shutter">Transition</div>
-    <div id="page1" class="page slider layout-col">
+    <div id="skills" class="page slider layout-col">
       <div id="photography" class="copy layout-col layout-justify-between">
         <div>Photography: Nunc pellentesque, nibh nec aliquet laoreet, nulla purus pulvinar tellus, id ullamcorper velit metus in libero. Nam hendrerit nec sem sed consequat. Maecenas condimentum sodales metus, nec facilisis turpis facilisis quis. Vestibulum facilisis magna et leo tincidunt, id viverra tellus elementum. Nulla ultricies sem et diam semper vehicula. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut blandit elementum dui nec finibus. Aliquam erat volutpat. Phasellus sem quam, tincidunt vel justo eget, sagittis pharetra nisl. Vivamus ultrices auctor odio, nec dictum tortor vulputate a. Etiam varius augue tempus semper rhoncus. Aliquam efficitur mauris et dignissim dignissim.</div>
         <div>picture</div>
@@ -154,12 +170,25 @@
         <div>Proin mollis pulvinar vulputate. Curabitur suscipit tempor tellus, vel semper arcu. Praesent vel nisi imperdiet, dictum neque nec, pellentesque massa. Phasellus eu ornare tortor, non malesuada massa. Phasellus cursus, justo et laoreet maximus, neque orci finibus tellus, ut viverra neque augue in tellus. Fusce volutpat tincidunt massa, id laoreet augue lacinia et. Donec id iaculis dolor, et blandit nulla. Nullam vitae quam sed purus tempus gravida. Proin elementum magna nisl, at vulputate tellus egestas vitae. Etiam nisl massa, mattis in volutpat sed, elementum et diam. Mauris scelerisque sem eu lorem lobortis accumsan. Sed dapibus aliquam lacus, condimentum gravida lorem ultricies ac. Quisque accumsan quam vel nulla consectetur pretium. Morbi sed luctus odio. Aenean sodales elit nulla, vitae finibus libero scelerisque nec. Phasellus consequat ex ac sem euismod interdum.</div>
       </div>
     </div>
-    <div id="page2" class="page slider layout-col">
+    <div id="projects" class="page slider layout-col">
       <div id="programing" class="copy layout-col layout-justify-between">
         <div>Programing: In hac habitasse platea dictumst. Nam mattis vulputate metus, sed sodales ligula elementum eget. Nullam in massa tincidunt, ultrices turpis eget, consectetur lectus. Suspendisse vel venenatis massa. Sed sagittis vitae ex nec sodales. Proin nec nisi sagittis, venenatis nisi et, ullamcorper dui. Quisque pulvinar, tellus in ultricies auctor, enim dui tincidunt felis, eu finibus dui velit quis tellus. Nam faucibus sapien lacinia, imperdiet dui sit amet, malesuada felis. Nullam lacus sem, commodo vitae accumsan sed, varius quis turpis. Nam mollis pharetra massa, vitae rhoncus sem ullamcorper iaculis.</div>
         <div>picture</div>
         <div>In hac habitasse platea dictumst. Nam mattis vulputate metus, sed sodales ligula elementum eget. Nullam in massa tincidunt, ultrices turpis eget, consectetur lectus. Suspendisse vel venenatis massa. Sed sagittis vitae ex nec sodales. Proin nec nisi sagittis, venenatis nisi et, ullamcorper dui. Quisque pulvinar, tellus in ultricies auctor, enim dui tincidunt felis, eu finibus dui velit quis tellus. Nam faucibus sapien lacinia, imperdiet dui sit amet, malesuada felis. Nullam lacus sem, commodo vitae accumsan sed, varius quis turpis. Nam mollis pharetra massa, vitae rhoncus sem ullamcorper iaculis.</div>
       </div>
+    </div>
+    <div id="about" class="page slider layout-col">
+      <div id="programing" class="copy layout-col layout-justify-between">
+        <div>Programing: In hac habitasse platea dictumst. Nam mattis vulputate metus, sed sodales ligula elementum eget. Nullam in massa tincidunt, ultrices turpis eget, consectetur lectus. Suspendisse vel venenatis massa. Sed sagittis vitae ex nec sodales. Proin nec nisi sagittis, venenatis nisi et, ullamcorper dui. Quisque pulvinar, tellus in ultricies auctor, enim dui tincidunt felis, eu finibus dui velit quis tellus. Nam faucibus sapien lacinia, imperdiet dui sit amet, malesuada felis. Nullam lacus sem, commodo vitae accumsan sed, varius quis turpis. Nam mollis pharetra massa, vitae rhoncus sem ullamcorper iaculis.</div>
+        <div>picture</div>
+        <div>In hac habitasse platea dictumst. Nam mattis vulputate metus, sed sodales ligula elementum eget. Nullam in massa tincidunt, ultrices turpis eget, consectetur lectus. Suspendisse vel venenatis massa. Sed sagittis vitae ex nec sodales. Proin nec nisi sagittis, venenatis nisi et, ullamcorper dui. Quisque pulvinar, tellus in ultricies auctor, enim dui tincidunt felis, eu finibus dui velit quis tellus. Nam faucibus sapien lacinia, imperdiet dui sit amet, malesuada felis. Nullam lacus sem, commodo vitae accumsan sed, varius quis turpis. Nam mollis pharetra massa, vitae rhoncus sem ullamcorper iaculis.</div>
+      </div>
+    </div>
+    <div id="navigation" class="nav slider layout-row layout-justify-center layout-align-center">
+      <div id="nav_home" class="link" data-linkto="home">Home</div>
+      <div id="nav_skills" class="link" data-linkto="skills">Skills</div>
+      <div id="nav_projects" class="link" data-linkto="projects">Projects</div>
+      <div id="nav_about" class="link" data-linkto="about">About</div>
     </div>
   <script src="../../Laminar.js/laminar.js"></script>
   <script src="../../Laminar.js/laminar.model.js"></script>
@@ -168,9 +197,9 @@
   <script>
       var getOffset = function(element) {
         var top = 0, left = 0;
-        do {
             top += element.offsetTop  || 0;
             left += element.offsetLeft || 0;
+        do {
             element = element.offsetParent;
         } while(element);
 
@@ -184,11 +213,14 @@
       var state = Laminar.createModel({
         state:'home'
       });
-      
+
       // Define a function to create a function that watches the Laminar model
       // tracking the state of the app. This function binds the Laminar widgets
       // to the Laminar model
       var createSliderTriggerFunction = function(panel) {
+        /* Change-type trigger functions watch a target (the object) and a
+         * property.
+         */
         return function(target,property) {
           // (Un)Set the class to 'unslid' if the right state is set
           if(property=="state" && target[property]==panel.getId()) {
@@ -198,7 +230,7 @@
           }
         }
       }
-      
+
       var stateTriggers = state.__getHandlerObject();
       // Make all of the sliding layers as Laminar Widgets
       var sliders = document.querySelectorAll(".slider");
@@ -209,13 +241,25 @@
       }
 
       var transitionPanel = new Laminar.Widget(document.getElementById("transitionlayer"));
+      var navPanel = new Laminar.Widget(document.getElementById("navigation"));
       stateTriggers.addHandler("change",function(target,property) {
         if(property=="state" && target[property]!="home") {
+          navPanel.addClass("unslid");
           transitionPanel.addClass("unslid");
         } else {
+          navPanel.removeClass("unslid");
           transitionPanel.removeClass("unslid");
         }
       })
+
+      var navLinks = document.querySelectorAll(".link");
+      console.log(navLinks.length,"nav links found");
+      for(var c=0;c<navLinks.length;c++) {
+        var navLink = new Laminar.Widget(navLinks[c]);
+        navLink.listenEvent("click",function(e,obj) {
+          state.state = obj.getData("linkto");
+        });
+      }
     </script>
   </body>
 </html>
