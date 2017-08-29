@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Sample #8</title>
+    <title>Sample #9</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -14,11 +14,18 @@
     <link rel="stylesheet" href="../../Laminar.Layouts/laminar-base.css">
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <style>
+      body.fixed {
+        padding-top: 380px;
+      }
       #maintitle {
         position: inherit;
         border-bottom: 1px solid green;
         height: 40vh;
         width: 100vw;
+      }
+      .fixed > #maintitle {
+        position: fixed;
+        top: -340px;
       }
       #titlebanner {
         transition: margin-top 0.1s;
@@ -27,7 +34,7 @@
         position: fixed;
         top: 0;
         /* height: 10vh; */
-        transition: all 1s;
+        /* transition: all 1s; */
       }
       #portrait {
         position: absolute;
@@ -37,11 +44,11 @@
     </style>
   </head>
   <body id="main" class="layout-col layout-align-center">
-    <div id="maintitle" class="layout-row layout-width-1-1">
-      <div>Hi</div>
+    <div id="maintitle" class="layout-col layout-width-1-1">
+      <!--<div>Hi</div>-->
       <div id="titlebanner" class="layout-row layout-width-1-1">
         <div id="subtitle" class="layout-width-1-6 layout-justify-end">Hi, I'm</div>
-        <div id="title" class="layout-width-5-6 layout-justify-start">Travis Colbert</div>
+        <div id="title" class="layout-width-5-6 layout-justify-start">A Good Boy</div>
       </div>
     </div>
     <div id="maincontent" class="layout-col layout-justify-center layout-width-sd">
@@ -98,6 +105,7 @@
     var mainTitle = document.getElementById('maintitle');
     var titleBanner = document.getElementById('titlebanner');
     var titleBannerHeight = titleBanner.offsetHeight;
+    console.log("titlebarheight:",titleBannerHeight);
     /*
     var titleBannerScroll = {
       elementSelector:titlebanner,
@@ -128,10 +136,22 @@
             var top = domElement.getBoundingClientRect().top;
             console.log("Maintitle top:",top);
             var mainTitleHeight = mainTitle.offsetHeight;
-            var newTitleBannerTopMargin = ((mainTitleHeight-top)/2);
-            // console.log("Maintitle height:",mainTitleHeight);
-            console.log("TitleBanner margin:",newTitleBannerTopMargin);
+            var newTitleBannerTopMargin = ((mainTitleHeight-titleBannerHeight-top)/2);
+            //console.log("TitleBanner margin:",newTitleBannerTopMargin);
             titleBanner.style["margin-top"] = newTitleBannerTopMargin + "px";
+          }
+        },
+        {
+          testFunc:function(domElement) {
+            return (domElement.getBoundingClientRect().top<=-340);
+            //return true;
+          },
+          trueCallback:function(domElement) {
+            if (domElement.classList) {
+            document.querySelector('body').classList.add("fixed");
+            } else {
+              document.querySelector('body').classname += ' fixed';
+            }
           }
         }
       ]
