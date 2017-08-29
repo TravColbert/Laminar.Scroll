@@ -20,6 +20,9 @@
         height: 40vh;
         width: 100vw;
       }
+      #titlebanner {
+        transition: margin-top 0.1s;
+      }
       #titlebanner.fixed {
         position: fixed;
         top: 0;
@@ -34,7 +37,8 @@
     </style>
   </head>
   <body id="main" class="layout-col layout-align-center">
-    <div id="maintitle" class="layout-col layout-width-1-1 layout-justify-center">
+    <div id="maintitle" class="layout-row layout-width-1-1">
+      <div>Hi</div>
       <div id="titlebanner" class="layout-row layout-width-1-1">
         <div id="subtitle" class="layout-width-1-6 layout-justify-end">Hi, I'm</div>
         <div id="title" class="layout-width-5-6 layout-justify-start">Travis Colbert</div>
@@ -66,14 +70,14 @@
           <div>Programing: In hac habitasse platea dictumst. Nam mattis vulputate metus, sed sodales ligula elementum eget. Nullam in massa tincidunt, ultrices turpis eget, consectetur lectus. Suspendisse vel venenatis massa. Sed sagittis vitae ex nec sodales. Proin nec nisi sagittis, venenatis nisi et, ullamcorper dui. Quisque pulvinar, tellus in ultricies auctor, enim dui tincidunt felis, eu finibus dui velit quis tellus. Nam faucibus sapien lacinia, imperdiet dui sit amet, malesuada felis. Nullam lacus sem, commodo vitae accumsan sed, varius quis turpis. Nam mollis pharetra massa, vitae rhoncus sem ullamcorper iaculis.</div>
           <div>picture</div>
           <div>In hac habitasse platea dictumst. Nam mattis vulputate metus, sed sodales ligula elementum eget. Nullam in massa tincidunt, ultrices turpis eget, consectetur lectus. Suspendisse vel venenatis massa. Sed sagittis vitae ex nec sodales. Proin nec nisi sagittis, venenatis nisi et, ullamcorper dui. Quisque pulvinar, tellus in ultricies auctor, enim dui tincidunt felis, eu finibus dui velit quis tellus. Nam faucibus sapien lacinia, imperdiet dui sit amet, malesuada felis. Nullam lacus sem, commodo vitae accumsan sed, varius quis turpis. Nam mollis pharetra massa, vitae rhoncus sem ullamcorper iaculis.</div>
-        </div>      
+        </div>
       </div>
       <div id="about" class="layout-col">
         <div id="programing" class="copy layout-col layout-justify-between">
           <div>Programing: In hac habitasse platea dictumst. Nam mattis vulputate metus, sed sodales ligula elementum eget. Nullam in massa tincidunt, ultrices turpis eget, consectetur lectus. Suspendisse vel venenatis massa. Sed sagittis vitae ex nec sodales. Proin nec nisi sagittis, venenatis nisi et, ullamcorper dui. Quisque pulvinar, tellus in ultricies auctor, enim dui tincidunt felis, eu finibus dui velit quis tellus. Nam faucibus sapien lacinia, imperdiet dui sit amet, malesuada felis. Nullam lacus sem, commodo vitae accumsan sed, varius quis turpis. Nam mollis pharetra massa, vitae rhoncus sem ullamcorper iaculis.</div>
           <div>picture</div>
           <div>In hac habitasse platea dictumst. Nam mattis vulputate metus, sed sodales ligula elementum eget. Nullam in massa tincidunt, ultrices turpis eget, consectetur lectus. Suspendisse vel venenatis massa. Sed sagittis vitae ex nec sodales. Proin nec nisi sagittis, venenatis nisi et, ullamcorper dui. Quisque pulvinar, tellus in ultricies auctor, enim dui tincidunt felis, eu finibus dui velit quis tellus. Nam faucibus sapien lacinia, imperdiet dui sit amet, malesuada felis. Nullam lacus sem, commodo vitae accumsan sed, varius quis turpis. Nam mollis pharetra massa, vitae rhoncus sem ullamcorper iaculis.</div>
-        </div>      
+        </div>
       </div>
     </div>
     <div id="portrait" class="layout-width-1-1">
@@ -85,12 +89,17 @@
   <script>
     /**
      * First, let's handle the big banner that collapses into a navbar on top
-     * 
+     *
      * Find the element:
      */
-    var titlebanner = new Laminar.Widget(document.getElementById('titlebanner'));
-    var scrollElements = [];
-    scrollElements.push({
+    // var windowHeight = document.querySelector('body').getBoundingClientRect().bottom;
+    // console.log(windowHeight,windowHeight * -.25);
+    //var bodyElement = document.querySelector('body');
+    var mainTitle = document.getElementById('maintitle');
+    var titleBanner = document.getElementById('titlebanner');
+    var titleBannerHeight = titleBanner.offsetHeight;
+    /*
+    var titleBannerScroll = {
       elementSelector:titlebanner,
       conditions:[
         {
@@ -106,7 +115,30 @@
           }
         }
       ]
-    });
+    };
+    */
+    var mainTitleScroll = {
+      elementSelector:"#maintitle",
+      conditions:[
+        {
+          testFunc:function(domElement) {
+            return true;
+          },
+          trueCallback:function(domElement) {
+            var top = domElement.getBoundingClientRect().top;
+            console.log("Maintitle top:",top);
+            var mainTitleHeight = mainTitle.offsetHeight;
+            var newTitleBannerTopMargin = ((mainTitleHeight-top)/2);
+            // console.log("Maintitle height:",mainTitleHeight);
+            console.log("TitleBanner margin:",newTitleBannerTopMargin);
+            titleBanner.style["margin-top"] = newTitleBannerTopMargin + "px";
+          }
+        }
+      ]
+    };
+    var scrollElements = [];
+    scrollElements.push(mainTitleScroll);
+    //scrollElements.push(titleBannerScroll);
     var scroll = new Laminar.Scroll(scrollElements);
 
     var getOffset = function(element) {
