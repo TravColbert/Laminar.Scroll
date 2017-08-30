@@ -30,6 +30,8 @@
         box-shadow: 0 4px 10px rgba(0,0,0,0.2);
       }
       #titlebanner {
+        position: fixed;
+        top: 0;
         transition: margin-top 0.1s;
       }
       #titlebanner.fixed {
@@ -95,9 +97,7 @@
         </div>
       </div>
     </div>
-    <div id="portrait" class="layout-width-1-1">
-      <!--<img src="../../my_profile/profile.jpg">-->
-    </div>
+    <div id="portrait" class="layout-width-1-1"></div>
   <script src="../../Laminar.js/laminar.js"></script>
   <script src="../../Laminar.js/laminar.model.js"></script>
   <script src="../laminar.scroll.js"></script>
@@ -110,25 +110,13 @@
     // var windowHeight = document.querySelector('body').getBoundingClientRect().bottom;
     // console.log(windowHeight,windowHeight * -.25);
     var bodyElement = document.querySelector('body');
-    var mainTitle = document.getElementById('maintitle');
+    var mainTitle = new Laminar.Widget(document.getElementById('maintitle'));
     var titleBanner = document.getElementById('titlebanner');
     var titleBannerHeight = titleBanner.offsetHeight;
     console.log("titlebarheight:",titleBannerHeight);
     var mainTitleScroll = {
       elementSelector:"#maintitle",
       conditions:[
-        {
-          testFunc:function(domElement) {
-            return true;
-          },
-          trueCallback:function(domElement) {
-            var top = domElement.getBoundingClientRect().top;
-            var mainTitleHeight = mainTitle.offsetHeight;
-            var newTitleBannerTopMargin = ((mainTitleHeight-titleBannerHeight-top)/2);
-            console.log(bodyElement.getBoundingClientRect().top);
-            titleBanner.style["margin-top"] = newTitleBannerTopMargin + "px";
-          }
-        },
         {
           testFunc:function(domElement) {
             return (domElement.getBoundingClientRect().top<=-340 && bodyElement.getBoundingClientRect().top<=-340);
@@ -151,6 +139,16 @@
         }
       ]
     };
+    var pageScroll = {
+      elementSelector:"body",
+      conditions:[
+        {
+          testFunc:function(domElement) {
+            
+          }
+        }
+      ]
+    }
     var scrollElements = [];
     scrollElements.push(mainTitleScroll);
     var scroll = new Laminar.Scroll(scrollElements);
@@ -195,11 +193,13 @@
     // Make all of the sliding layers as Laminar Widgets
     var sliders = document.querySelectorAll(".slider");
     for(var c=0; c<sliders.length; c++) {
+      console.log("Creating a slider?");
       var panel = new Laminar.Widget(sliders[c]);
       // Bind the widget to the model by creating the trigger function
       stateTriggers.addHandler("change", createSliderTriggerFunction(panel));
     }
 
+    /*
     var transitionPanel = new Laminar.Widget(document.getElementById("transitionlayer"));
     var navPanel = new Laminar.Widget(document.getElementById("navigation"));
     stateTriggers.addHandler("change",function(target,property) {
@@ -211,6 +211,7 @@
         transitionPanel.removeClass("unslid");
       }
     })
+    */
 
     var navLinks = document.querySelectorAll(".link");
     console.log(navLinks.length,"nav links found");
