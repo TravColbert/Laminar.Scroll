@@ -15,7 +15,7 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <style>
       body.fixed {
-        padding-top: 380px;
+        padding-top: 270px;
       }
       #maintitle {
         position: inherit;
@@ -25,7 +25,7 @@
       }
       .fixed > #maintitle {
         position: fixed;
-        top: -340px;
+        top: -270px;
         background:rgba(250,250,250,0.9);
         box-shadow: 0 4px 10px rgba(0,0,0,0.2);
       }
@@ -52,7 +52,6 @@
   </head>
   <body id="main" class="layout-col layout-align-center">
     <div id="maintitle" class="layout-col layout-width-1-1">
-      <!--<div>Hi</div>-->
       <div id="titlebanner" class="layout-row layout-wrap layout-width-1-1">
         <div id="subtitle" class="layout-width-1-6 layout-justify-end">Hi, I'm</div>
         <div id="title" class="layout-width-4-6 layout-justify-start">A Good Boy</div>
@@ -97,7 +96,6 @@
         </div>
       </div>
     </div>
-    <div id="portrait" class="layout-width-1-1"></div>
   <script src="../../Laminar.js/laminar.js"></script>
   <script src="../../Laminar.js/laminar.model.js"></script>
   <script src="../laminar.scroll.js"></script>
@@ -109,46 +107,37 @@
      */
     // var windowHeight = document.querySelector('body').getBoundingClientRect().bottom;
     // console.log(windowHeight,windowHeight * -.25);
-    var bodyElement = document.querySelector('body');
+    var bodyElement = new Laminar.Widget(document.querySelector('body'));
     var mainTitle = new Laminar.Widget(document.getElementById('maintitle'));
-    var titleBanner = document.getElementById('titlebanner');
-    var titleBannerHeight = titleBanner.offsetHeight;
-    console.log("titlebarheight:",titleBannerHeight);
+    var titleBanner = new Laminar.Widget(document.getElementById('titlebanner'));
+    var mainTitleHeight = mainTitle.getHeight();
+    var titleBannerHeight = titleBanner.getHeight();
+    //var mainTitleTriggerHeight = (mainTitleHeight - titleBannerHeight)*-1;
+    var mainTitleTriggerHeight = -270;
+    console.log(titleBannerHeight,mainTitleHeight,mainTitleTriggerHeight);
+
+    // Make a Laminar model that tracks the state of the app
+    var state = Laminar.createModel({
+      state:'home'
+    });
+
     var mainTitleScroll = {
-      elementSelector:"#maintitle",
+      elementSelector:mainTitle,
       conditions:[
         {
           testFunc:function(domElement) {
-            return (domElement.getBoundingClientRect().top<=-340 && bodyElement.getBoundingClientRect().top<=-340);
+            console.log(domElement.getBoundingTop(),bodyElement.getBoundingTop(),mainTitleTriggerHeight);
+            return (domElement.getBoundingTop()<=mainTitleTriggerHeight && bodyElement.getBoundingTop()<=mainTitleTriggerHeight);
           },
           trueCallback:function(domElement) {
-            if (domElement.classList) {
-              document.querySelector('body').classList.add("fixed");
-            } else {
-              document.querySelector('body').classname += ' fixed';
-            }
-          }
-        },
-        {
-          testFunc:function(domElement) {
-            return (bodyElement.getBoundingClientRect().top>=-339);
+            if(state.state!="fixed") state.state = "fixed";
           },
-          trueCallback:function(domElement) {
-            if (domElement.classList) bodyElement.classList.remove('fixed');
+          falseCallback:function() {
+            if(state.state!="home") state.state = "home";
           }
         }
       ]
     };
-    var pageScroll = {
-      elementSelector:"body",
-      conditions:[
-        {
-          testFunc:function(domElement) {
-            
-          }
-        }
-      ]
-    }
     var scrollElements = [];
     scrollElements.push(mainTitleScroll);
     var scroll = new Laminar.Scroll(scrollElements);
@@ -167,10 +156,6 @@
       };
     }
 
-    // Make a Laminar model that tracks the state of the app
-    var state = Laminar.createModel({
-      state:'home'
-    });
 
     // Define a function to create a function that watches the Laminar model
     // tracking the state of the app. This function binds the Laminar widgets
