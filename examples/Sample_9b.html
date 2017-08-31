@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Sample #9</title>
+    <title>Sample #9b</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -15,12 +15,12 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <style>
       body.fixed {
-        padding-top: 270px;
+        padding-top: 310px;
       }
       #maintitle {
         position: inherit;
         border-bottom: 1px solid green;
-        height: 40vh;
+        height: 310px;
         width: 100vw;
       }
       .fixed > #maintitle {
@@ -37,8 +37,6 @@
       #titlebanner.fixed {
         position: fixed;
         top: 0;
-        /* height: 10vh; */
-        /* transition: all 1s; */
       }
       #maincontent {
         padding: 10px;
@@ -103,18 +101,25 @@
     /**
      * First, let's handle the big banner that collapses into a navbar on top
      *
-     * Find the element:
+     * Find the element and give them Laminar powers
      */
-    // var windowHeight = document.querySelector('body').getBoundingClientRect().bottom;
-    // console.log(windowHeight,windowHeight * -.25);
     var bodyElement = new Laminar.Widget(document.querySelector('body'));
+    /**
+     * Tell the body element how to react when the app's state changes
+     */
+    bodyElement.getAppState = function(target,property) {
+      if(property=="state" && target[property]!="home") {
+        console.log(state.state);
+        this.addClass("fixed");
+        return;
+      }
+      this.removeClass("fixed");
+    }.bind(bodyElement);
     var mainTitle = new Laminar.Widget(document.getElementById('maintitle'));
     var titleBanner = new Laminar.Widget(document.getElementById('titlebanner'));
     var mainTitleHeight = mainTitle.getHeight();
     var titleBannerHeight = titleBanner.getHeight();
-    //var mainTitleTriggerHeight = (mainTitleHeight - titleBannerHeight)*-1;
     var mainTitleTriggerHeight = -270;
-    console.log(titleBannerHeight,mainTitleHeight,mainTitleTriggerHeight);
 
     // Make a Laminar model that tracks the state of the app
     var state = Laminar.createModel({
@@ -126,7 +131,7 @@
       conditions:[
         {
           testFunc:function(domElement) {
-            console.log(domElement.getBoundingTop(),bodyElement.getBoundingTop(),mainTitleTriggerHeight);
+            //console.log("trigger:",mainTitleTriggerHeight,"title:",domElement.getBoundingTop(),"body:",bodyElement.getBoundingTop());
             return (domElement.getBoundingTop()<=mainTitleTriggerHeight && bodyElement.getBoundingTop()<=mainTitleTriggerHeight);
           },
           trueCallback:function(domElement) {
@@ -140,72 +145,10 @@
     };
     var scrollElements = [];
     scrollElements.push(mainTitleScroll);
-    var scroll = new Laminar.Scroll(scrollElements);
-
-    var getOffset = function(element) {
-      var top = 0, left = 0;
-          top += element.offsetTop  || 0;
-          left += element.offsetLeft || 0;
-      do {
-          element = element.offsetParent;
-      } while(element);
-
-      return {
-          top: top,
-          left: left
-      };
-    }
-
-
-    // Define a function to create a function that watches the Laminar model
-    // tracking the state of the app. This function binds the Laminar widgets
-    // to the Laminar model
-    var createSliderTriggerFunction = function(panel) {
-      /* Change-type trigger functions watch a target (the object) and a
-        * property.
-        */
-      return function(target,property) {
-        // (Un)Set the class to 'unslid' if the right state is set
-        if(property=="state" && target[property]==panel.getId()) {
-          panel.addClass("unslid");
-        } else {
-          panel.removeClass("unslid");
-        }
-      }
-    }
+    var scroll = new Laminar.Scroll(scrollElements,50);
 
     var stateTriggers = state.__getHandlerObject();
-    // Make all of the sliding layers as Laminar Widgets
-    var sliders = document.querySelectorAll(".slider");
-    for(var c=0; c<sliders.length; c++) {
-      console.log("Creating a slider?");
-      var panel = new Laminar.Widget(sliders[c]);
-      // Bind the widget to the model by creating the trigger function
-      stateTriggers.addHandler("change", createSliderTriggerFunction(panel));
-    }
-
-    /*
-    var transitionPanel = new Laminar.Widget(document.getElementById("transitionlayer"));
-    var navPanel = new Laminar.Widget(document.getElementById("navigation"));
-    stateTriggers.addHandler("change",function(target,property) {
-      if(property=="state" && target[property]!="home") {
-        navPanel.addClass("unslid");
-        transitionPanel.addClass("unslid");
-      } else {
-        navPanel.removeClass("unslid");
-        transitionPanel.removeClass("unslid");
-      }
-    })
-    */
-
-    var navLinks = document.querySelectorAll(".link");
-    console.log(navLinks.length,"nav links found");
-    for(var c=0;c<navLinks.length;c++) {
-      var navLink = new Laminar.Widget(navLinks[c]);
-      navLink.listenEvent("click",function(e,obj) {
-        state.state = obj.getData("linkto");
-      });
-    }
+    stateTriggers.addHandler("change", bodyElement.getAppState);
     </script>
   </body>
 </html>
