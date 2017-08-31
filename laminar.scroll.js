@@ -7,20 +7,37 @@
 var Laminar = Laminar || {};
 
 /* General Idea: Make a list of all the elements that need to be aware of their
- * vertical positioning.
- * For each element, list the upper- and lower-range where an event should
- * happen.
- * Finally, give the function that should be called when the element enters the
- * sensitive area.
+ * positioning.
+ * For each element, define a test that should be performed at some interval.
+ * If the test is TRUE do one function, if not, do the other
  *
- * [{elementSelector,testFunct(element),callbackFunct},...]
+ * [{elementSelector,conditions[{testFunct(element),trueCallbackFunct,falseCallbackFunct}],...]
  */
 
 Laminar.Scroll = (function() {
-  function Scroll(scrollElements,scrollTimeout) {
+  /**
+   * Instantiates an object that tracks scrolling on given objects.
+   * 
+   * The scrollElements parameter is an array of objects decribing:
+   * 1. A DOM object to watch
+   * 2. A test to perform
+   * 3. A function to invoke if the test returns TRUE
+   * 4. A function to invoke if the test returns FALSE
+   * 
+   * The scrollTimeout is the number of milleseconds between tests. The 
+   * timeout defaults to 200ms.
+   * 
+   * @param {*} scrollElements 
+   * @param {*} scrollTimeout 
+   * @param {*} scrollOccured
+   */
+  function Scroll(scrollElements,scrollTimeout,scrollOccured) {
     this.scrollTimeout = scrollTimeout || 200;
-    this.scrollOccured = false;
+    this.scrollOccured = scrollOccured || false;
     if(Array.isArray(scrollElements)) {
+      for(var c=0;c<scrollElements.length;c++) {
+        scrollElements[c].element = this.getDomElement(scrollElements[c].elementSelector);
+      }
       this.elements = scrollElements;
     }
     this.init(this);
@@ -31,17 +48,18 @@ Laminar.Scroll = (function() {
       that.scrollEvent();
     });
     this.scrollCheckLoop = setInterval(function() {
-      if(that.scrollOccured) {
-        that.checkBodyPosition();
-        that.scrollOccured = false;
-      }
+      if(!that.scrollOccured) return;
+      that.checkBodyPosition();
+      that.scrollOccured = false;
     }, this.scrollTimeout);
+    return this;
+  };
+  Scroll.prototype.scrollEvent = function() {
     this.scrollOccured = true;
     return this;
   };
   Scroll.prototype.getDomElement = function(elementSelector) {
     if(Laminar.Widget && (elementSelector instanceof Laminar.Widget)) {
-      //return element.elementSelector;
       return elementSelector;
     }
     return document.querySelector(elementSelector);
@@ -50,19 +68,13 @@ Laminar.Scroll = (function() {
     clearInterval(this.scrollCheckLoop);
     return this;
   };
-  Scroll.prototype.scrollEvent = function() {
-    this.scrollOccured = true;
-    return this;
-  };
   Scroll.prototype.checkBodyPosition = function() {
     for(var i=0;i<this.elements.length;i++) {
-      var element = this.elements[i];
-      var domElement = this.getDomElement(element.elementSelector);
-      for(var c=0;c<element.conditions.length;c++) {
-        if(element.conditions[c].testFunc(domElement)) {
-          if(element.conditions[c].hasOwnProperty("trueCallback")) element.conditions[c].trueCallback(domElement);
+      for(var c=0;c<this.elements[i].conditions.length;c++) {
+        if(this.elements[i].conditions[c].testFunc(this.elements[i].element)) {
+          if(this.elements[i].conditions[c].hasOwnProperty("trueCallback")) this.elements[i].conditions[c].trueCallback(this.elements[i].element);
         } else {
-          if(element.conditions[c].hasOwnProperty("falseCallback")) element.conditions[c].falseCallback(domElement);
+          if(this.elements[i].conditions[c].hasOwnProperty("falseCallback")) this.elements[i].conditions[c].falseCallback(this.elements[i].element);
         }
       }
     }
