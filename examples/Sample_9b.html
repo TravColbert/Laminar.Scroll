@@ -15,17 +15,17 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <style>
       body.fixed {
-        padding-top: 310px;
+        padding-top: 50vh;
       }
       #maintitle {
         position: inherit;
-        height: 310px;
+        height: 50vh;
         width: 100vw;
         transition: 0.7s;
       }
       .fixed > #maintitle {
         position: fixed;
-        top: -270px;
+        top: calc(-50vh + 30px);
         background:rgba(230,230,230,0.9);
         border-bottom: 1px solid rgba(200,200,200,1);
         box-shadow: 0 6px 10px rgba(0,0,0,0.1);
@@ -119,9 +119,12 @@
     }.bind(bodyElement);
     var mainTitle = new Laminar.Widget(document.getElementById('maintitle'));
     var titleBanner = new Laminar.Widget(document.getElementById('titlebanner'));
+    var fixedBannerHeight = 30;
+    var windowHeight = window.innerHeight;
     var mainTitleHeight = mainTitle.getHeight();
     var titleBannerHeight = titleBanner.getHeight();
-    var mainTitleTriggerHeight = -270;
+    // Calculates 1/2 the viewheight then adds the desired size of the toolbar
+    var mainTitleTriggerHeight = (windowHeight * -0.5) + fixedBannerHeight;
 
     // Make a Laminar model that tracks the state of the app
     var state = Laminar.createModel({
