@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Sample #9b</title>
+    <title>Sample #11</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -28,6 +28,14 @@
         background: radial-gradient(ellipse at center, rgba(215,207,194,1) 0%, rgba(156,140,114,1) 100%);
         filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d7cfc2', endColorstr='#9c8c72', GradientType=1 );
       }
+      #navigation {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        font-size: 1.1em;
+        font-family: 'Cinzel', sans-serif;
+        padding-top: 2vh;
+      }
       #portrait {
         position: fixed;
         bottom: 0;
@@ -38,18 +46,26 @@
         width: auto;
       }
       #blurb {
-        font-family: 'Josefin Slab', serif;
+        font-family: 'Cinzel', serif;
         font-size: 4em;
         text-shadow: 0 0 10px rgba(255,255,255,0.5);
       }
+      #navigation > .link {
+        border: 1px solid rgb(255,255,255);
+        border-radius: 2px;
+        background: rgba(255,255,255,0.2);
+        padding: 0.5em;
+        /* margin-bottom: 0.25em; */
+        margin: 0 1em 0.25em;
+      }
     </style>
   </head>
-  <body id="main" class="layout-col layout-align-center">
-    <div id="navigation" class="layout-row layout-width-2-3 layout-height-1-5 layout-justify-between">
-      <div>Skills</div>
-      <div>Projects</div>
-      <div>Contact</div>
-      <div>About</div>
+  <body id="main" class="layout-col layout-justify-center layout-align-center">
+    <div id="navigation" class="layout-row layout-justify-around layout-align-center text-align-center layout-wrap">
+      <div class="link">Skills</div>
+      <div class="link">Projects</div>
+      <div class="link">Contact</div>
+      <div class="link">About</div>
     </div>
     <div id="blurb" class="layout-width-2-3 layout-height-2-5 layout-justify-center layout-align-center text-align-center">Hi! Let's Build Something</div>
     <div id="portrait" class="layout-justify-center layout-height-2-5"><img id="myface" src="../../my_profile/face7_cropped.png"></div>
