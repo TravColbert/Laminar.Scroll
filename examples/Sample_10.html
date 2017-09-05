@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Sample #9b</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="../smoothscroll.js"></script>
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+    <link rel="stylesheet" href="../../Libraries/normalize.css">
+    <link rel="stylesheet" href="../../Laminar.Layouts/laminar-base.css">
+    <link href="https://fonts.googleapis.com/css?family=Cinzel|Comfortaa|Kanit:500i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <style>
+      body.fixed {
+        padding-top: 50vh;
+      }
+      #maintitle {
+        position: inherit;
+        height: 50vh;
+        /*width: 100vw;*/
+        transition: 0.7s;
+        /* background: url("../../Backgrounds/bg_2.jpg"); */
+      }
+      .fixed > #maintitle {
+        position: fixed;
+        top: calc(-50vh + 30px);
+        background:rgba(230,230,230,0.9);
+        border-bottom: 1px solid rgba(200,200,200,1);
+        box-shadow: 0 6px 10px rgba(0,0,0,0.1);
+        transition: 0.2s;
+      }
+      #titlebanner {
+        position: fixed;
+        top: 0;
+        transition: margin-top 0.1s;
+      }
+      #maincontent {
+        padding: 10px;
+      }
+      #portrait {
+        position: absolute;
+        bottom: 0px;
+        z-index: 99;
+      }
+      #home {
+        height: 50vh;
+        /*background: rgb(180,180,180);*/
+      }
+      #skills,
+      #projects,
+      #about {
+        min-height: 100vh;
+        padding-top: 30px;
+      }
+      /* FONTS */
+      #subtitle {
+        padding: 10px;
+        padding-top: 80px;
+        font-size: 2em;
+        font-family: 'Kanit', sans-serif;
+        /*text-align: right;*/
+      }
+      #title {
+        font-size: 3em;
+        font-family: 'Comfortaa', sans-serif;
+        height: fit-content;
+        background: rgba(252,252,252,0.9);
+        box-shadow: 0 10px 10px rgba(252,252,252,0.8);
+        padding: 10px;
+        /*padding-bottom: 0;*/
+      }
+      .fixed #subtitle,
+      .fixed #title {
+        font-size: 1em;
+        font-family: 'Cinzel', sans-serif;
+      }
+    </style>
+  </head>
+  <body id="main" class="layout-col layout-align-center">
+    <script src="../../Laminar.js/laminar.js"></script>
+    <script src="../../Laminar.js/laminar.model.js"></script>
+    <script src="../laminar.scroll.js"></script>
+    <script>
+    </script>
+  </body>
+</html>

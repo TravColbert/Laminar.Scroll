@@ -12,6 +12,7 @@
     <!-- Place favicon.ico in the root directory -->
     <link rel="stylesheet" href="../../Libraries/normalize.css">
     <link rel="stylesheet" href="../../Laminar.Layouts/laminar-base.css">
+    <link href="https://fonts.googleapis.com/css?family=Cinzel|Comfortaa|Kanit:500i" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <style>
       body.fixed {
@@ -22,6 +23,7 @@
         height: 50vh;
         width: 100vw;
         transition: 0.7s;
+        /* background: url("../../Backgrounds/bg_2.jpg"); */
       }
       .fixed > #maintitle {
         position: fixed;
@@ -48,52 +50,83 @@
         bottom: 0px;
         z-index: 99;
       }
+      #home {
+        height: 50vh;
+        /*background: rgb(180,180,180);*/
+      }
+      #skills,
+      #projects,
+      #about {
+        min-height: 100vh;
+        padding-top: 30px;
+      }
+      /* FONTS */
+      #subtitle {
+        padding: 10px;
+        font-size: 2em;
+        font-family: 'Kanit', sans-serif;
+        text-align: right;
+      }
+      #title {
+        font-size: 3em;
+        font-family: 'Comfortaa', sans-serif;
+      }
+      .fixed #subtitle,
+      .fixed #title {
+        font-size: 1em;
+        font-family: 'Cinzel', sans-serif;
+      }
     </style>
   </head>
   <body id="main" class="layout-col layout-align-center">
-    <div id="maintitle" class="layout-col layout-width-1-1">
+    <div id="maintitle" class="layout-col">
       <div id="titlebanner" class="layout-row layout-wrap layout-width-1-1">
-        <div id="subtitle" class="layout-width-1-6 layout-justify-end">Hi, I'm</div>
-        <div id="title" class="layout-width-4-6 layout-justify-start">A Good Boy</div>
-        <div id="titlemenu" class="layout-width-1-6 layout-justify-start">
+        <div id="subtitle" class="layout-width-2-6 layout-justify-end">
+          I specialize in building custom, highly-vertical web and hybrid applications
+        </div>
+        <div id="title" class="layout-width-4-6 layout-justify-start">a Good Boy</div>
+        <div id="titlemenu" class="layout-width-1-1 layout-justify-start">
           <a href="#top">Home</a>
           <a href="#about">About</a>
         </div>
       </div>
     </div>
-    <div id="maincontent" class="layout-col layout-justify-center layout-width-sd">
-      <div id="home" class="layout-col layout-width-1-1">
-        <div>I specialize in building custom, highly-vertical web and hybrid applications.</div>
-        <div>HTML5, Javascript, CSS3, Linux and the BASH shell are good friends of mine.</div>
-        <div>I have completed big networking and development projects in 5 countries.</div>
-        <div>Most importantly, I love good communication. I like people and I believe that honest communication and knowledge-sharing makes everyone better.</div>
-        <div>I am currently living in Bangkok, Thailand.</div>
-      </div>
-      <div id="skills" class="layout-col layout-width-1-1">
-        <div id="photography" class="copy layout-col layout-justify-between">
-          <div>Photography: Nunc pellentesque, nibh nec aliquet laoreet, nulla purus pulvinar tellus, id ullamcorper velit metus in libero. Nam hendrerit nec sem sed consequat. Maecenas condimentum sodales metus, nec facilisis turpis facilisis quis. Vestibulum facilisis magna et leo tincidunt, id viverra tellus elementum. Nulla ultricies sem et diam semper vehicula. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut blandit elementum dui nec finibus. Aliquam erat volutpat. Phasellus sem quam, tincidunt vel justo eget, sagittis pharetra nisl. Vivamus ultrices auctor odio, nec dictum tortor vulputate a. Etiam varius augue tempus semper rhoncus. Aliquam efficitur mauris et dignissim dignissim.</div>
-          <div>picture</div>
-          <div>Proin mollis pulvinar vulputate. Curabitur suscipit tempor tellus, vel semper arcu. Praesent vel nisi imperdiet, dictum neque nec, pellentesque massa. Phasellus eu ornare tortor, non malesuada massa. Phasellus cursus, justo et laoreet maximus, neque orci finibus tellus, ut viverra neque augue in tellus. Fusce volutpat tincidunt massa, id laoreet augue lacinia et. Donec id iaculis dolor, et blandit nulla. Nullam vitae quam sed purus tempus gravida. Proin elementum magna nisl, at vulputate tellus egestas vitae. Etiam nisl massa, mattis in volutpat sed, elementum et diam. Mauris scelerisque sem eu lorem lobortis accumsan. Sed dapibus aliquam lacus, condimentum gravida lorem ultricies ac. Quisque accumsan quam vel nulla consectetur pretium. Morbi sed luctus odio. Aenean sodales elit nulla, vitae finibus libero scelerisque nec. Phasellus consequat ex ac sem euismod interdum.</div>
+    <div id="maincontent" class="layout-row layout-justify-center layout-width-1-1">
+      <div class="layout-width-2-6"></div>
+      <div class="layout-width-4-6 layout-col">
+        <div id="home" class="layout-col layout-width-1-1">
+          <div>I specialize in building custom, highly-vertical web and hybrid applications.</div>
+          <div>HTML5, Javascript, CSS3, Linux and the BASH shell are good friends of mine.</div>
+          <div>I have completed big networking and development projects in 5 countries.</div>
+          <div>Most importantly, I love good communication. I like people and I believe that honest communication and knowledge-sharing makes everyone better.</div>
+          <div>I am currently living in Bangkok, Thailand.</div>
         </div>
-        <div class="copy">Vivamus volutpat neque vitae suscipit eleifend. Curabitur consectetur maximus odio a laoreet. Vestibulum in sem tristique purus ullamcorper pellentesque. Vivamus nec urna diam. Suspendisse non gravida dui. Quisque quis fringilla eros. Mauris rhoncus, velit vitae euismod maximus, diam leo pulvinar leo, vel imperdiet sem massa eu ex. Donec dui dui, tempus ac massa at, eleifend euismod est. Aenean dictum vitae justo non faucibus. Integer volutpat semper lacinia. Praesent ligula justo, maximus a pharetra eget, ultrices in diam. Ut ornare quis orci id scelerisque.</div>
-        <div id="contact"  class="copy layout-col layout-justify-between">
-          <div>Contact: Proin mollis pulvinar vulputate. Curabitur suscipit tempor tellus, vel semper arcu. Praesent vel nisi imperdiet, dictum neque nec, pellentesque massa. Phasellus eu ornare tortor, non malesuada massa. Phasellus cursus, justo et laoreet maximus, neque orci finibus tellus, ut viverra neque augue in tellus. Fusce volutpat tincidunt massa, id laoreet augue lacinia et. Donec id iaculis dolor, et blandit nulla. Nullam vitae quam sed purus tempus gravida. Proin elementum magna nisl, at vulputate tellus egestas vitae. Etiam nisl massa, mattis in volutpat sed, elementum et diam. Mauris scelerisque sem eu lorem lobortis accumsan. Sed dapibus aliquam lacus, condimentum gravida lorem ultricies ac. Quisque accumsan quam vel nulla consectetur pretium. Morbi sed luctus odio. Aenean sodales elit nulla, vitae finibus libero scelerisque nec. Phasellus consequat ex ac sem euismod interdum.</div>
-          <div>picture</div>
-          <div>Proin mollis pulvinar vulputate. Curabitur suscipit tempor tellus, vel semper arcu. Praesent vel nisi imperdiet, dictum neque nec, pellentesque massa. Phasellus eu ornare tortor, non malesuada massa. Phasellus cursus, justo et laoreet maximus, neque orci finibus tellus, ut viverra neque augue in tellus. Fusce volutpat tincidunt massa, id laoreet augue lacinia et. Donec id iaculis dolor, et blandit nulla. Nullam vitae quam sed purus tempus gravida. Proin elementum magna nisl, at vulputate tellus egestas vitae. Etiam nisl massa, mattis in volutpat sed, elementum et diam. Mauris scelerisque sem eu lorem lobortis accumsan. Sed dapibus aliquam lacus, condimentum gravida lorem ultricies ac. Quisque accumsan quam vel nulla consectetur pretium. Morbi sed luctus odio. Aenean sodales elit nulla, vitae finibus libero scelerisque nec. Phasellus consequat ex ac sem euismod interdum.</div>
+        <div id="skills" class="layout-col layout-width-1-1">
+          <div id="photography" class="copy layout-col layout-justify-between">
+            <div>Photography: Nunc pellentesque, nibh nec aliquet laoreet, nulla purus pulvinar tellus, id ullamcorper velit metus in libero. Nam hendrerit nec sem sed consequat. Maecenas condimentum sodales metus, nec facilisis turpis facilisis quis. Vestibulum facilisis magna et leo tincidunt, id viverra tellus elementum. Nulla ultricies sem et diam semper vehicula. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut blandit elementum dui nec finibus. Aliquam erat volutpat. Phasellus sem quam, tincidunt vel justo eget, sagittis pharetra nisl. Vivamus ultrices auctor odio, nec dictum tortor vulputate a. Etiam varius augue tempus semper rhoncus. Aliquam efficitur mauris et dignissim dignissim.</div>
+            <div>picture</div>
+            <div>Proin mollis pulvinar vulputate. Curabitur suscipit tempor tellus, vel semper arcu. Praesent vel nisi imperdiet, dictum neque nec, pellentesque massa. Phasellus eu ornare tortor, non malesuada massa. Phasellus cursus, justo et laoreet maximus, neque orci finibus tellus, ut viverra neque augue in tellus. Fusce volutpat tincidunt massa, id laoreet augue lacinia et. Donec id iaculis dolor, et blandit nulla. Nullam vitae quam sed purus tempus gravida. Proin elementum magna nisl, at vulputate tellus egestas vitae. Etiam nisl massa, mattis in volutpat sed, elementum et diam. Mauris scelerisque sem eu lorem lobortis accumsan. Sed dapibus aliquam lacus, condimentum gravida lorem ultricies ac. Quisque accumsan quam vel nulla consectetur pretium. Morbi sed luctus odio. Aenean sodales elit nulla, vitae finibus libero scelerisque nec. Phasellus consequat ex ac sem euismod interdum.</div>
+          </div>
+          <div class="copy">Vivamus volutpat neque vitae suscipit eleifend. Curabitur consectetur maximus odio a laoreet. Vestibulum in sem tristique purus ullamcorper pellentesque. Vivamus nec urna diam. Suspendisse non gravida dui. Quisque quis fringilla eros. Mauris rhoncus, velit vitae euismod maximus, diam leo pulvinar leo, vel imperdiet sem massa eu ex. Donec dui dui, tempus ac massa at, eleifend euismod est. Aenean dictum vitae justo non faucibus. Integer volutpat semper lacinia. Praesent ligula justo, maximus a pharetra eget, ultrices in diam. Ut ornare quis orci id scelerisque.</div>
+          <div id="contact"  class="copy layout-col layout-justify-between">
+            <div>Contact: Proin mollis pulvinar vulputate. Curabitur suscipit tempor tellus, vel semper arcu. Praesent vel nisi imperdiet, dictum neque nec, pellentesque massa. Phasellus eu ornare tortor, non malesuada massa. Phasellus cursus, justo et laoreet maximus, neque orci finibus tellus, ut viverra neque augue in tellus. Fusce volutpat tincidunt massa, id laoreet augue lacinia et. Donec id iaculis dolor, et blandit nulla. Nullam vitae quam sed purus tempus gravida. Proin elementum magna nisl, at vulputate tellus egestas vitae. Etiam nisl massa, mattis in volutpat sed, elementum et diam. Mauris scelerisque sem eu lorem lobortis accumsan. Sed dapibus aliquam lacus, condimentum gravida lorem ultricies ac. Quisque accumsan quam vel nulla consectetur pretium. Morbi sed luctus odio. Aenean sodales elit nulla, vitae finibus libero scelerisque nec. Phasellus consequat ex ac sem euismod interdum.</div>
+            <div>picture</div>
+            <div>Proin mollis pulvinar vulputate. Curabitur suscipit tempor tellus, vel semper arcu. Praesent vel nisi imperdiet, dictum neque nec, pellentesque massa. Phasellus eu ornare tortor, non malesuada massa. Phasellus cursus, justo et laoreet maximus, neque orci finibus tellus, ut viverra neque augue in tellus. Fusce volutpat tincidunt massa, id laoreet augue lacinia et. Donec id iaculis dolor, et blandit nulla. Nullam vitae quam sed purus tempus gravida. Proin elementum magna nisl, at vulputate tellus egestas vitae. Etiam nisl massa, mattis in volutpat sed, elementum et diam. Mauris scelerisque sem eu lorem lobortis accumsan. Sed dapibus aliquam lacus, condimentum gravida lorem ultricies ac. Quisque accumsan quam vel nulla consectetur pretium. Morbi sed luctus odio. Aenean sodales elit nulla, vitae finibus libero scelerisque nec. Phasellus consequat ex ac sem euismod interdum.</div>
+          </div>
         </div>
-      </div>
-      <div id="projects" class="layout-col">
-        <div id="programing" class="copy layout-col layout-justify-between">
-          <div>Programing: In hac habitasse platea dictumst. Nam mattis vulputate metus, sed sodales ligula elementum eget. Nullam in massa tincidunt, ultrices turpis eget, consectetur lectus. Suspendisse vel venenatis massa. Sed sagittis vitae ex nec sodales. Proin nec nisi sagittis, venenatis nisi et, ullamcorper dui. Quisque pulvinar, tellus in ultricies auctor, enim dui tincidunt felis, eu finibus dui velit quis tellus. Nam faucibus sapien lacinia, imperdiet dui sit amet, malesuada felis. Nullam lacus sem, commodo vitae accumsan sed, varius quis turpis. Nam mollis pharetra massa, vitae rhoncus sem ullamcorper iaculis.</div>
-          <div>picture</div>
-          <div>In hac habitasse platea dictumst. Nam mattis vulputate metus, sed sodales ligula elementum eget. Nullam in massa tincidunt, ultrices turpis eget, consectetur lectus. Suspendisse vel venenatis massa. Sed sagittis vitae ex nec sodales. Proin nec nisi sagittis, venenatis nisi et, ullamcorper dui. Quisque pulvinar, tellus in ultricies auctor, enim dui tincidunt felis, eu finibus dui velit quis tellus. Nam faucibus sapien lacinia, imperdiet dui sit amet, malesuada felis. Nullam lacus sem, commodo vitae accumsan sed, varius quis turpis. Nam mollis pharetra massa, vitae rhoncus sem ullamcorper iaculis.</div>
+        <div id="projects" class="layout-col">
+          <div id="programing" class="copy layout-col layout-justify-between">
+            <div>Programing: In hac habitasse platea dictumst. Nam mattis vulputate metus, sed sodales ligula elementum eget. Nullam in massa tincidunt, ultrices turpis eget, consectetur lectus. Suspendisse vel venenatis massa. Sed sagittis vitae ex nec sodales. Proin nec nisi sagittis, venenatis nisi et, ullamcorper dui. Quisque pulvinar, tellus in ultricies auctor, enim dui tincidunt felis, eu finibus dui velit quis tellus. Nam faucibus sapien lacinia, imperdiet dui sit amet, malesuada felis. Nullam lacus sem, commodo vitae accumsan sed, varius quis turpis. Nam mollis pharetra massa, vitae rhoncus sem ullamcorper iaculis.</div>
+            <div>picture</div>
+            <div>In hac habitasse platea dictumst. Nam mattis vulputate metus, sed sodales ligula elementum eget. Nullam in massa tincidunt, ultrices turpis eget, consectetur lectus. Suspendisse vel venenatis massa. Sed sagittis vitae ex nec sodales. Proin nec nisi sagittis, venenatis nisi et, ullamcorper dui. Quisque pulvinar, tellus in ultricies auctor, enim dui tincidunt felis, eu finibus dui velit quis tellus. Nam faucibus sapien lacinia, imperdiet dui sit amet, malesuada felis. Nullam lacus sem, commodo vitae accumsan sed, varius quis turpis. Nam mollis pharetra massa, vitae rhoncus sem ullamcorper iaculis.</div>
+          </div>
         </div>
-      </div>
-      <div id="about" class="layout-col">
-        <div id="programing" class="copy layout-col layout-justify-between">
-          <div>Programing: In hac habitasse platea dictumst. Nam mattis vulputate metus, sed sodales ligula elementum eget. Nullam in massa tincidunt, ultrices turpis eget, consectetur lectus. Suspendisse vel venenatis massa. Sed sagittis vitae ex nec sodales. Proin nec nisi sagittis, venenatis nisi et, ullamcorper dui. Quisque pulvinar, tellus in ultricies auctor, enim dui tincidunt felis, eu finibus dui velit quis tellus. Nam faucibus sapien lacinia, imperdiet dui sit amet, malesuada felis. Nullam lacus sem, commodo vitae accumsan sed, varius quis turpis. Nam mollis pharetra massa, vitae rhoncus sem ullamcorper iaculis.</div>
-          <div>picture</div>
-          <div>In hac habitasse platea dictumst. Nam mattis vulputate metus, sed sodales ligula elementum eget. Nullam in massa tincidunt, ultrices turpis eget, consectetur lectus. Suspendisse vel venenatis massa. Sed sagittis vitae ex nec sodales. Proin nec nisi sagittis, venenatis nisi et, ullamcorper dui. Quisque pulvinar, tellus in ultricies auctor, enim dui tincidunt felis, eu finibus dui velit quis tellus. Nam faucibus sapien lacinia, imperdiet dui sit amet, malesuada felis. Nullam lacus sem, commodo vitae accumsan sed, varius quis turpis. Nam mollis pharetra massa, vitae rhoncus sem ullamcorper iaculis.</div>
+        <div id="about" class="layout-col">
+          <div id="programing" class="copy layout-col layout-justify-between">
+            <div>Programing: In hac habitasse platea dictumst. Nam mattis vulputate metus, sed sodales ligula elementum eget. Nullam in massa tincidunt, ultrices turpis eget, consectetur lectus. Suspendisse vel venenatis massa. Sed sagittis vitae ex nec sodales. Proin nec nisi sagittis, venenatis nisi et, ullamcorper dui. Quisque pulvinar, tellus in ultricies auctor, enim dui tincidunt felis, eu finibus dui velit quis tellus. Nam faucibus sapien lacinia, imperdiet dui sit amet, malesuada felis. Nullam lacus sem, commodo vitae accumsan sed, varius quis turpis. Nam mollis pharetra massa, vitae rhoncus sem ullamcorper iaculis.</div>
+            <div>picture</div>
+            <div>In hac habitasse platea dictumst. Nam mattis vulputate metus, sed sodales ligula elementum eget. Nullam in massa tincidunt, ultrices turpis eget, consectetur lectus. Suspendisse vel venenatis massa. Sed sagittis vitae ex nec sodales. Proin nec nisi sagittis, venenatis nisi et, ullamcorper dui. Quisque pulvinar, tellus in ultricies auctor, enim dui tincidunt felis, eu finibus dui velit quis tellus. Nam faucibus sapien lacinia, imperdiet dui sit amet, malesuada felis. Nullam lacus sem, commodo vitae accumsan sed, varius quis turpis. Nam mollis pharetra massa, vitae rhoncus sem ullamcorper iaculis.</div>
+          </div>
         </div>
       </div>
     </div>
