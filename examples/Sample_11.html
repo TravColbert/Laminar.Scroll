@@ -12,9 +12,8 @@
     <!-- Place favicon.ico in the root directory -->
     <link rel="stylesheet" href="../../Libraries/normalize.css">
     <link rel="stylesheet" href="../../Laminar.Layouts/laminar-base.css">
-    <link href="https://fonts.googleapis.com/css?family=Cinzel|Comfortaa|Kanit:500i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cinzel|Comfortaa" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Josefin+Slab" rel="stylesheet">
     <style>
       body {
         color: white;
@@ -45,37 +44,162 @@
         height: 100%;
         width: auto;
       }
-      #blurb {
-        padding-top: 0.4em;
+      .content {
+        position: fixed;
+        left: 0;
+        top: 35vh;
+        padding: 0 10%;
+        transition: all 1s;
+      }
+      .content.shifted {
+        left: 100vw;
+      }
+      .content.unshifted {
+        left: -100vw;
+      }
+      #home {
+        /* padding-top: 0.4em; */
+        position: fixed;
         font-family: 'Cinzel', serif;
         font-size: 3.8em;
       }
+      #skills {
+        position: fixed;
+      }
       #navigation > .link {
-        border: 1px solid rgb(255,255,255);
-        border-radius: 2px;
-        background: rgba(255,255,255,0.2);
+        border: 1px solid rgba(255,255,255,0.1);
+        border-radius: 4px;
+        /* background: rgba(120,120,120,0.1); */
+        /* box-shadow: 0 2px 10px rgba(0,0,0,0.1); */
         padding: 0.5em 1.5em;
         /* margin-bottom: 0.25em; */
         margin: 0 1em 0.25em;
+        width: 10em;
+        flex-direction: column;
+        letter-spacing: 3px;
+        transition: all 0.5s;
       }
       .glow {
         text-shadow: 0 0 10px rgba(255,255,255,0.5);
+      }
+      .linkactive {
+        border: 1px solid rgba(255,255,255,0.3) !important;
+        background: rgba(120,120,120,0.1);
+        box-shadow: inset 0 2px 10px rgba(0,0,0,0.1);
       }
     </style>
   </head>
   <body id="main" class="layout-col layout-justify-center layout-align-center">
     <div id="navigation" class="layout-row layout-justify-around layout-align-center text-align-center layout-wrap">
-      <div class="link glow">Skills</div>
-      <div class="link glow">Projects</div>
-      <div class="link glow">Contact</div>
-      <div class="link glow">About</div>
+      <div class="link glow" data-linkto="skills">Skills</div>
+      <div class="link glow" data-linkto="projects">Projects</div>
+      <div class="link glow" data-linkto="contact">Contact</div>
+      <div class="link glow" data-linkto="home">About</div>
     </div>
-    <div id="blurb" class="layout-width-7-8 layout-height-2-5 layout-justify-center text-align-center">Hi! Let's Build Something</div>
+    <div id="home" class="content layout-width-1-1 layout-height-2-5 layout-justify-center text-align-center">Hi! Let's Build Something</div>
+    <div id="skills" class="content shifted layout-width-1-1 layout-height-2-5 layout-justify-center text-align-center">
+      <div>I specialize in building custom, highly-vertical web and hybrid applications.</div>
+      <div>HTML5, Javascript, CSS3, Linux and the BASH shell are good friends of mine.</div>
+      <div>I have completed big networking and development projects in 5 countries.</div>
+      <div>Most importantly, I love good communication. I like people and I believe that honest communication and knowledge-sharing makes everyone better.</div>
+      <div>I am currently living in Bangkok, Thailand.</div>
+    </div>
     <div id="portrait" class="layout-justify-center layout-height-2-5"><img id="myface" src="../../my_profile/face7_cropped.png"></div>
     <script src="../../Laminar.js/laminar.js"></script>
     <script src="../../Laminar.js/laminar.model.js"></script>
     <script src="../laminar.scroll.js"></script>
     <script>
+      /**
+       * Let's make the mechanism that will control which content will show.
+       * 
+       * In short:
+       * 1. Create an object that holds the state of the SPA
+       * 2. Tell all .content DOM elements to listen to the state of that object
+       * 3. Tell them what to do when the state changes
+       * 
+       * This involves building a Laminar.Model object (a type of proxy) that 
+       * holds state.
+       * Turning the .content DOM objects into Laminar.Widgets
+       * 
+       */
+
+      /**
+       * Make a Laminar model that tracks the state of the app
+       */
+      var state = Laminar.createModel({
+        state:'home'
+      });
+
+      /**
+       * We need to add a method that is triggered when the state changes.
+       * We pull out an object from the state model and add a method to it
+       */
+      var stateTriggers = state.__getHandlerObject();
+
+      /**
+       * Create a function-creator function
+       */
+      var createTriggerFunction = function(domObj) {
+        return function(target,property) {
+          if(property=="state" && target[property]==domObj.getId()) {
+            domObj.removeClass("shifted");
+          } else {
+            domObj.addClass("shifted");
+          }
+        }
+      }
+      /**
+       * For all of our sections, let's add/register a method that will be
+       * triggered when a CHANGE happens to the state.
+       *
+       * Let's fetch all of our main content DOM elements and
+       * give them Laminar powers.
+       */
+      var contentList = document.querySelectorAll(".content");
+      for(var c=0;c<contentList.length;c++) {
+        /**
+         * Turn each one into a Laminar.Widget
+         */
+        var contentBox = new Laminar.Widget(contentList[c]);
+
+        /**
+         * We put this functionality in an IIAF
+         */
+        (function() {
+          console.log("Building triggers for DOM element ID:",contentBox.getId());
+          stateTriggers.addHandler("change",createTriggerFunction(contentBox));
+        })();
+      }
+
+      /**
+       * Finally, let's connect the state-setting functionallity to the links 
+       * in the document
+       */
+      var linkClickTrigger = function(domObj) {
+        return function(e,obj) {
+          state.state = obj.getData("linkto");
+        }
+      }
+
+      var linkTriggerFunction = function(domObj) {
+        return function(target,property) {
+          if(property=="state" && target[property]==domObj.getData("linkto")) {
+            domObj.addClass("linkactive");
+          } else {
+            domObj.removeClass("linkactive");
+          }
+        }
+      }
+
+      var linkList = document.querySelectorAll(".link");
+      for(var c=0;c<linkList.length;c++) {
+        var linkItem = new Laminar.Widget(linkList[c]);
+        linkItem.listenEvent("click",linkClickTrigger(linkItem));
+        (function() {
+          stateTriggers.addHandler("change",linkTriggerFunction(linkItem));
+        })();
+      }
+
     </script>
   </body>
 </html>
