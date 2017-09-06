@@ -49,7 +49,7 @@
         left: 0;
         top: 35vh;
         padding: 0 10%;
-        transition: all 1s;
+        transition: all 0.8s;
       }
       .content.shifted {
         left: 100vw;
@@ -63,9 +63,12 @@
         font-family: 'Cinzel', serif;
         font-size: 3em;
         letter-spacing: 3px;
+        text-shadow: 
+          0 0 2px rgba(0,0,0,0.9), 
+          0 0 25px rgba(255,255,255,0.5);
       }
       #skills {
-        position: fixed;
+        color: rgb(255,255,255);
       }
       #navigation > .link {
         /*color: slategrey;*/
@@ -80,9 +83,13 @@
         flex-direction: column;
         letter-spacing: 3px;
         transition: all 0.5s;
+
       }
       .glow {
-        text-shadow: 0 0 10px rgba(255,255,255,0.5);
+        text-shadow: 
+          0 0 2px rgba(0,0,0,0.9), 
+          0 0 25px rgba(255,255,255,0.5);
+        /* text-shadow: 0 0 10px rgba(255,255,255,0.5); */
       }
       .linkactive {
         border: 1px solid rgba(255,255,255,0.3) !important;
@@ -90,7 +97,8 @@
         box-shadow: inset 0 2px 10px rgba(0,0,0,0.1);
       }
       #myname {
-        color: black;
+        color: dimgray;
+        text-shadow: 0 0 2px rgb(255, 255, 255), 0 0 25px rgba(255,255,255,1);
       }
     </style>
   </head>
@@ -102,10 +110,10 @@
       <div class="link glow" data-linkto="home">About</div>
     </div>
     <div id="home" class="content layout-col layout-width-1-1 layout-height-2-5 layout-align-center text-align-center">
-      <div>I'm <span id="myname" class="text-nobreak">Travis Colbert</span></div>
+      <div>I'm &nbsp;<span id="myname" class="text-nobreak">James Bond</span></div>
       <div>Let's Build Something</div>
     </div>
-    <div id="skills" class="content shifted layout-width-1-1 layout-height-2-5 layout-justify-center text-align-center">
+    <div id="skills" class="content shifted layout-col layout-width-1-1 layout-height-2-5">
       <div>I specialize in building custom, highly-vertical web and hybrid applications.</div>
       <div>HTML5, Javascript, CSS3, Linux and the BASH shell are good friends of mine.</div>
       <div>I have completed big networking and development projects in 5 countries.</div>
