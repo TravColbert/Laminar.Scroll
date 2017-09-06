@@ -16,7 +16,7 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <style>
       body {
-        color: white;
+        color: rgb(255,250,240);
         background: rgb(215,207,194);
         background: rgba(215,207,194,1);
         background: -moz-radial-gradient(center, ellipse cover, rgba(215,207,194,1) 0%, rgba(156,140,114,1) 100%);
@@ -61,12 +61,14 @@
         /* padding-top: 0.4em; */
         position: fixed;
         font-family: 'Cinzel', serif;
-        font-size: 3.8em;
+        font-size: 3em;
+        letter-spacing: 3px;
       }
       #skills {
         position: fixed;
       }
       #navigation > .link {
+        /*color: slategrey;*/
         border: 1px solid rgba(255,255,255,0.1);
         border-radius: 4px;
         /* background: rgba(120,120,120,0.1); */
@@ -87,6 +89,9 @@
         background: rgba(120,120,120,0.1);
         box-shadow: inset 0 2px 10px rgba(0,0,0,0.1);
       }
+      #myname {
+        color: black;
+      }
     </style>
   </head>
   <body id="main" class="layout-col layout-justify-center layout-align-center">
@@ -96,7 +101,10 @@
       <div class="link glow" data-linkto="contact">Contact</div>
       <div class="link glow" data-linkto="home">About</div>
     </div>
-    <div id="home" class="content layout-width-1-1 layout-height-2-5 layout-justify-center text-align-center">Hi! Let's Build Something</div>
+    <div id="home" class="content layout-col layout-width-1-1 layout-height-2-5 layout-align-center text-align-center">
+      <div>I'm <span id="myname" class="text-nobreak">Travis Colbert</span></div>
+      <div>Let's Build Something</div>
+    </div>
     <div id="skills" class="content shifted layout-width-1-1 layout-height-2-5 layout-justify-center text-align-center">
       <div>I specialize in building custom, highly-vertical web and hybrid applications.</div>
       <div>HTML5, Javascript, CSS3, Linux and the BASH shell are good friends of mine.</div>
@@ -111,16 +119,16 @@
     <script>
       /**
        * Let's make the mechanism that will control which content will show.
-       * 
+       *
        * In short:
        * 1. Create an object that holds the state of the SPA
        * 2. Tell all .content DOM elements to listen to the state of that object
        * 3. Tell them what to do when the state changes
-       * 
-       * This involves building a Laminar.Model object (a type of proxy) that 
+       *
+       * This involves building a Laminar.Model object (a type of proxy) that
        * holds state.
        * Turning the .content DOM objects into Laminar.Widgets
-       * 
+       *
        */
 
       /**
@@ -172,7 +180,7 @@
       }
 
       /**
-       * Finally, let's connect the state-setting functionallity to the links 
+       * Finally, let's connect the state-setting functionallity to the links
        * in the document
        */
       var linkClickTrigger = function(domObj) {
