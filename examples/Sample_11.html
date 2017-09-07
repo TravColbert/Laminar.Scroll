@@ -47,7 +47,7 @@
       .content {
         position: fixed;
         left: 0;
-        top: 35vh;
+        top: 18vh;
         padding: 0 10%;
         transition: all 0.8s;
       }
@@ -58,14 +58,17 @@
         left: -100vw;
       }
       #home {
-        /* padding-top: 0.4em; */
+        padding-top: 2em;
         position: fixed;
         font-family: 'Cinzel', serif;
         font-size: 3em;
         letter-spacing: 3px;
-        text-shadow: 
-          0 0 2px rgba(0,0,0,0.9), 
+        text-shadow: 0 0 25px rgba(255,255,255,0.5);
+        /*
+        text-shadow:
+          0 0 2px rgba(0,0,0,0.9),
           0 0 25px rgba(255,255,255,0.5);
+        */
       }
       #skills {
         color: rgb(255,255,255);
@@ -83,12 +86,14 @@
         flex-direction: column;
         letter-spacing: 3px;
         transition: all 0.5s;
-
+        cursor: pointer;
       }
       .glow {
-        text-shadow: 
-          0 0 2px rgba(0,0,0,0.9), 
+        /*
+        text-shadow:
+          0 0 2px rgba(0,0,0,0.9),
           0 0 25px rgba(255,255,255,0.5);
+         */
         /* text-shadow: 0 0 10px rgba(255,255,255,0.5); */
       }
       .linkactive {
@@ -97,34 +102,154 @@
         box-shadow: inset 0 2px 10px rgba(0,0,0,0.1);
       }
       #myname {
-        color: dimgray;
+        color: rgba(234,82,111,1);
         text-shadow: 0 0 2px rgb(255, 255, 255), 0 0 25px rgba(255,255,255,1);
+      }
+
+      /* SKILL GRAPH */
+      .skillrecord {
+        margin-bottom: 10px;
+      }
+      .skilllabel {
+        color: #EAE7E7;
+        font-size: 1em;
+        font-weight: bold;
+        /* padding-right: 1em; */
+        text-shadow: 0px 0px 2px #473D3D;
+      }
+      .skillgraph {
+        border-radius: 0.5em;
+        border: 3px solid #EAE7E7;
+        background-color: #D0CACC;
+        box-shadow: inset 1px 2px 3px rgba(0,0,0,0.3);
+      }
+      .skillscore {
+        color: #EAE7E7;
+        font-weight: bold;
+        border-radius: 0.25em;
+        border: 0px;
+        background-color: #F18F01;
+        margin: 4px;
+        padding: 3px;
+        text-shadow: 0px 0px 2px #473D3D;
+        box-shadow: 1px 2px 3px rgba(0,0,0,0.3);
       }
     </style>
   </head>
   <body id="main" class="layout-col layout-justify-center layout-align-center">
     <div id="navigation" class="layout-row layout-justify-around layout-align-center text-align-center layout-wrap">
+      <div class="link glow" data-linkto="about">About</div>
       <div class="link glow" data-linkto="skills">Skills</div>
       <div class="link glow" data-linkto="projects">Projects</div>
       <div class="link glow" data-linkto="contact">Contact</div>
-      <div class="link glow" data-linkto="home">About</div>
     </div>
     <div id="home" class="content layout-col layout-width-1-1 layout-height-2-5 layout-align-center text-align-center">
-      <div>I'm &nbsp;<span id="myname" class="text-nobreak">James Bond</span></div>
+      <div>I'm&nbsp;<span id="myname" class="text-nobreak">Travis Colbert</span></div>
       <div>Let's Build Something</div>
     </div>
-    <div id="skills" class="content shifted layout-col layout-width-1-1 layout-height-2-5">
+    <div id="about" class="content shifted layout-col layout-width-1-1 layout-height-2-5">
       <div>I specialize in building custom, highly-vertical web and hybrid applications.</div>
       <div>HTML5, Javascript, CSS3, Linux and the BASH shell are good friends of mine.</div>
       <div>I have completed big networking and development projects in 5 countries.</div>
       <div>Most importantly, I love good communication. I like people and I believe that honest communication and knowledge-sharing makes everyone better.</div>
       <div>I am currently living in Bangkok, Thailand.</div>
     </div>
+    <div id="skills" class="content shifted layout-row layout-width-1-1 layout-height-4-5">
+      <div class="layout-col layout-width-3-5">
+        <div>I want to appeal to clients who value an honest and communicative partner. To that end I present to you my objective assessment of my strengths.</div>
+        <div>Use this handy chart to get an idea of what my strengths are.</div>
+      </div>
+      <div class="layout-col layout-width-2-5">
+        <div class="layout-row layout-width-1-1 layout-justify-around">
+          <span id="button_web_fu" class="button layout-width-1-3 text-align-center">My Web-Fu</span>
+          <span id="button_dev_fu" class="button layout-width-1-3 text-align-center">My Dev-Fu</span>
+        </div>
+        <div id="skilllist" class="layout-col layout-width-1-1 layout-md-width-7-8 layout-lg-width-3-4 layout-xl-width-3-4"></div>
+      </div>
+    </div>
+    <div id="projects" class="content shifted layout-col layout-width-1-1 layout-height-2-5">
+      <h2>Projects</h2>
+      <div id="projectlist" class="layout-row layout-width-1-1">
+        <a href="http://www.dynacalq.com"><div class="project layout-row layout-justify-center">Dynacalq</div></a>
+        <a href="https://github.com/TravColbert" alt="Find Laminar.js on Github"><div class="project layout-row layout-justify-center">Laminar.js</div></a>
+        <div class="project layout-row layout-justify-center">Laminar.Layouts</div>
+        <a href="https://github.com/TravColbert" alt="Find Rolw Call on Github"><div class="project layout-row layout-justify-center">Role Call</div></a>
+        <a href="http://eventstaffing.co.uk" alt="Flair Event Staffing - Staff Training"><div class="project layout-row layout-justify-center">Flair Training</div></a>
+      </div>
+      <p>Check for my projects on Github.</p>
+    </div>
     <div id="portrait" class="layout-justify-center layout-height-2-5"><img id="myface" src="../../my_profile/face7_cropped.png"></div>
     <script src="../../Laminar.js/laminar.js"></script>
     <script src="../../Laminar.js/laminar.model.js"></script>
     <script src="../laminar.scroll.js"></script>
     <script>
+      var webSkill = [
+        {label:"Javascript",score:6},
+        {label:"Bootstrap",score:6},
+        {label:"Node.js",score:3},
+        {label:"Ajax",score:5},
+        {label:"CSS",score:6},
+        {label:"HTML5",score:6},
+        {label:"AngularJS",score:2},
+        {label:"PHP",score:3}
+      ];
+      var devSkill = [
+        {label:"Mobile",score:4},
+        {label:"TCP/IP",score:6},
+        {label:"Windows",score:4},
+        {label:"BASH",score:5},
+        {label:"Linux",score:6},
+        {label:"SQL",score:5}
+      ];
+      var skillsChart = {web:webSkill,dev:devSkill};
+
+      function showSkill(element, fu, skillCount) {
+        var skillRecordId = "skill_" + skillCount;
+        var skillRecord = new Laminar.Widget({
+          id:skillRecordId,
+          classlist:["layout-row","layout-xs-col","layout-sm-col","layout-width-1-1","skillrecord"],
+          parent:"#" + element
+        }).update();
+        var skillLabel = new Laminar.Widget({
+          id:"skill_label_" + skillCount,
+          classlist:["layout-width-1-3","layout-xs-width-1-1","layout-sm-width-1-1","layout-xs-justify-center","layout-sm-justify-center","layout-justify-end","layout-align-center","skilllabel"],
+          content:skillsChart[fu][skillCount]["label"] + "&nbsp;&nbsp;",
+          parent:"#" + skillRecordId
+        }).update();
+        var skillGraph = new Laminar.Widget({
+          id:"skill_graph_" + skillCount,
+          classlist:["layout-width-2-3","layout-xs-width-1-1","layout-sm-width-1-1","skillgraph"],
+          parent:"#" + skillRecordId
+        }).update();
+        var skillScore = new Laminar.Widget({
+          id:"skill_score_" + skillCount,
+          classlist:["layout-width-" + skillsChart[fu][skillCount]["score"] + "-6","layout-row","layout-justify-center","skillscore"],
+          content:skillsChart[fu][skillCount]["score"],
+          parent:"#skill_graph_" + skillCount
+        }).update();
+      }
+
+      function showSkills(fu) {
+        var skillList = document.getElementById("skilllist");
+        skillList.innerHTML = '';
+        fu = fu || "web";
+        for(var c=0;c<skillsChart[fu].length;c++) {
+          showSkill("skilllist",fu,c);
+        }
+      }
+
+      function setSkillsTrigger() {
+        var button = document.getElementById("button_web_fu");
+        button.addEventListener("click",function() {
+          showSkills("web");
+        });
+        button = document.getElementById("button_dev_fu");
+        button.addEventListener("click",function() {
+          showSkills("dev");
+        });
+      }
+
+
       /**
        * Let's make the mechanism that will control which content will show.
        *
@@ -216,6 +341,18 @@
         })();
       }
 
+      function ready(fn) {
+        if (document.readyState != 'loading'){
+          fn();
+        } else {
+          document.addEventListener('DOMContentLoaded', fn);
+        }
+      }
+
+      ready(function() {
+        setSkillsTrigger();
+        showSkills();
+      });
     </script>
   </body>
 </html>
