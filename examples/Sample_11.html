@@ -71,7 +71,7 @@
         */
       }
       #skills {
-        color: rgb(255,255,255);
+        /*color: rgb(255,255,255);*/
       }
       #navigation > .link {
         /*color: slategrey;*/
@@ -111,16 +111,16 @@
         margin-bottom: 10px;
       }
       .skilllabel {
-        color: #EAE7E7;
-        font-size: 1em;
+        /*color: #EAE7E7;*/
+        /*font-size: 1em;*/
         font-weight: bold;
         /* padding-right: 1em; */
         text-shadow: 0px 0px 2px #473D3D;
       }
       .skillgraph {
         border-radius: 0.5em;
-        border: 3px solid #EAE7E7;
-        background-color: #D0CACC;
+        border: 1px solid rgba(255,255,255,0.4);
+        background: rgba(120,120,120,0.1);
         box-shadow: inset 1px 2px 3px rgba(0,0,0,0.3);
       }
       .skillscore {
@@ -138,10 +138,28 @@
   </head>
   <body id="main" class="layout-col layout-justify-center layout-align-center">
     <div id="navigation" class="layout-row layout-justify-around layout-align-center text-align-center layout-wrap">
+      <nav id="topmenu" role="navigation" class="nav layout-xs-col layout-width-1-1 layout-sm-justify-end">
+        <div id="menu-title" class="layout-row layout-justify-between">
+          <div class="textshadow">TravisColbert.com</div>
+          <label for="show-menu" class="layout-justify-end">≡</label>
+        </div>
+        <input type="checkbox" id="show-menu" role="button">
+        <ul class="layout-xs-hidden layout-xs-col layout-row layout-sm-size-x2 layout-size-x1 layout-justify-around">
+          <li><div class="link glow" data-linkto="about">About</div></li>
+          <li><div class="link glow" data-linkto="skills">Skills</div></li>
+          <li><div class="link glow" data-linkto="projects">Projects</div></li>
+          <li><div class="link glow" data-linkto="contact">Contact</div></li>
+        </ul>
+      </nav>
+
+
+
+      <!--
       <div class="link glow" data-linkto="about">About</div>
       <div class="link glow" data-linkto="skills">Skills</div>
       <div class="link glow" data-linkto="projects">Projects</div>
       <div class="link glow" data-linkto="contact">Contact</div>
+      -->
     </div>
     <div id="home" class="content layout-col layout-width-1-1 layout-height-2-5 layout-align-center text-align-center">
       <div>I'm&nbsp;<span id="myname" class="text-nobreak">Travis Colbert</span></div>
@@ -186,7 +204,7 @@
       var webSkill = [
         {label:"Javascript",score:6},
         {label:"Bootstrap",score:6},
-        {label:"Node.js",score:3},
+        {label:"Node.js",score:4},
         {label:"Ajax",score:5},
         {label:"CSS",score:6},
         {label:"HTML5",score:6},
