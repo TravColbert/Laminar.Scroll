@@ -73,20 +73,16 @@
       #skills {
         /*color: rgb(255,255,255);*/
       }
-      #navigation > .link {
-        /*color: slategrey;*/
-        border: 1px solid rgba(255,255,255,0.1);
-        border-radius: 4px;
-        /* background: rgba(120,120,120,0.1); */
-        /* box-shadow: 0 2px 10px rgba(0,0,0,0.1); */
-        padding: 0.5em 1.5em;
-        /* margin-bottom: 0.25em; */
-        margin: 0 1em 0.25em;
-        width: 10em;
-        flex-direction: column;
+      /* #navigation li { */
+      #menu-title, #menulist li {
+        /* width: 15vw; */
         letter-spacing: 3px;
         transition: all 0.5s;
         cursor: pointer;
+        padding: 0.3em;
+      }
+      .link {
+        width: 100%;
       }
       .glow {
         /*
@@ -138,32 +134,40 @@
         text-shadow: 0px 0px 2px #473D3D;
         box-shadow: 1px 2px 3px rgba(0,0,0,0.3);
       }
+
+      /* COLLAPSING MENU */
+      /* Unstyle the UL element */
+      nav {
+        align-items: baseline;
+      }
+      nav ul, nav ol {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      /* Trigger the 'opening' of the menu if the checkbox is chcked */
+      /* + means all #menulists directly after the #show-menu */
+      #show-menu:checked + ul, #show-menu:checked + ol {
+        display: flex;
+        visibility: visible;
+      }
     </style>
   </head>
   <body id="main" class="layout-col layout-justify-center layout-align-center">
     <div id="navigation" class="layout-row layout-justify-around layout-align-center text-align-center layout-wrap">
-      <nav id="topmenu" role="navigation" class="nav layout-xs-col layout-width-1-1 layout-sm-justify-end">
-        <div id="menu-title" class="layout-row layout-justify-between">
+      <nav id="topmenu" role="navigation" class="nav layout-xs-col layout-width-1-1 layout-justify-between">
+        <div id="menu-title" class="layout-row">
           <div class="textshadow">TravisColbert.com</div>
           <label for="show-menu" class="layout-justify-end">≡</label>
         </div>
-        <input type="checkbox" id="show-menu" role="button">
-        <ul class="layout-xs-hidden layout-xs-col layout-row layout-sm-size-x2 layout-size-x1 layout-justify-around">
-          <li><div class="link glow" data-linkto="about">About</div></li>
-          <li><div class="link glow" data-linkto="skills">Skills</div></li>
-          <li><div class="link glow" data-linkto="projects">Projects</div></li>
-          <li><div class="link glow" data-linkto="contact">Contact</div></li>
+        <input id="show-menu" type="checkbox" role="button" class="layout-hidden">
+        <ul id="menulist" class="layout-xs-hidden layout-xs-col layout-sm-hidden layout-sm-col layout-md-hidden layout-md-row layout-row layout-sm-size-x2 layout-size-x1 layout-justify-around">
+          <li class="link glow" data-linkto="about">About</li>
+          <li class="link glow" data-linkto="skills">Skills</li>
+          <li class="link glow" data-linkto="projects">Projects</li>
+          <li class="link glow" data-linkto="contact">Contact</li>
         </ul>
       </nav>
-
-
-
-      <!--
-      <div class="link glow" data-linkto="about">About</div>
-      <div class="link glow" data-linkto="skills">Skills</div>
-      <div class="link glow" data-linkto="projects">Projects</div>
-      <div class="link glow" data-linkto="contact">Contact</div>
-      -->
     </div>
     <div id="home" class="content layout-col layout-width-1-1 layout-height-2-5 layout-align-center text-align-center">
       <div>I'm&nbsp;<span id="myname" class="text-nobreak">Travis Colbert</span></div>
