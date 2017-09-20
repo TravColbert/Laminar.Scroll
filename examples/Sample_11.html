@@ -195,6 +195,16 @@
         display: flex;
         visibility: visible;
       }
+      @media screen and (orientation: landscape) and (max-width:600px) {
+        body {
+          background: lightblue;
+        }
+        #about, #skills, #projects, #contact {
+          font-size: 1em;
+          letter-spacing: none;
+          overflow-y: auto;
+        }
+      }
       @media screen and (min-width: 768px) {
         #home {
           top: 16vh;
@@ -240,6 +250,10 @@
     </div>
     <div id="about" class="content shifted layout-col layout-width-1-1 layout-height-1-1 layout-justify-center">
       <div class="sectionheading">About</div>
+      <div class="paragraph">I specialize in building unique and highly-vertical web and mobile applications.</div>
+      <div class="paragraph">I like people and I believe that honest communication and knowledge-sharing make everyone better.</div>
+      <div class="paragraph">Contact me and let's build something - together!</div>
+
       <div class="paragraph">I specialize in building unique and highly-vertical web and mobile applications.</div>
       <div class="paragraph">I like people and I believe that honest communication and knowledge-sharing make everyone better.</div>
       <div class="paragraph">Contact me and let's build something - together!</div>
