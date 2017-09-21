@@ -15,6 +15,9 @@
     <link href="https://fonts.googleapis.com/css?family=Cinzel|Comfortaa" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <style>
+      @mixin .redback {
+        background-color: red;
+      }
       body {
         /*color: rgb(255,250,240);*/
         background: -moz-radial-gradient(center, ellipse cover, rgba(255,248,117,1) 0%, rgba(214,207,64,1) 100%); /* ff3.6+ */
@@ -198,7 +201,8 @@
       }
       @media screen and (orientation: landscape) and (max-width:600px) {
         body {
-          background: lightblue;
+          include: .redback;
+          /* background: lightblue; */
         }
         #about, #skills, #projects, #contact {
           font-size: 1em;
@@ -249,7 +253,6 @@
       <div id="title1" class="layout-width-1-1 layout-col layout-align-center">Hi, I'm <span id="myname" class="text-nobreak">Travis Colbert</span></div>
       <div id="blurb">Let's Build Something</div>
     </div>
-    <!--<div id="about" class="content shifted layout-col layout-width-1-1 layout-height-1-1 layout-justify-center">-->
     <div id="about" class="content shifted layout-col layout-width-1-1 layout-height-1-1">
       <div class="sectionheading">About</div>
       <div class="paragraph">I specialize in building unique and highly-vertical web and mobile applications.</div>
@@ -268,18 +271,14 @@
       <div class="paragraph">I like people and I believe that honest communication and knowledge-sharing make everyone better.</div>
       <div class="paragraph">Contact me and let's build something - together!</div>
     </div>
-    <!--<div id="skills" class="content shifted layout-col layout-width-1-1 layout-height-4-5 layout-justify-center">-->
     <div id="skills" class="content shifted layout-col layout-width-1-1 layout-height-1-1">
       <div class="sectionheading">Skills</div>
       <div class="layout-row layout-align-center">
-        <!--<div id="skillsblurb" class="layout-col layout-xs-hidden layout-sm-width-3-8 layout-width-5-12">-->
         <div id="skillsblurb" class="layout-col layout-xs-hidden layout-sm-hidden layout-width-5-12">
           <div>I want to appeal to clients who value an honest and communicative partner. To that end I present to you my objective assessment of my strengths.</div>
           <div>Use this handy chart to get an idea of what my strengths are.</div>
         </div>
-        <!--<div class="layout-xs-hidden layout-sm-width-1-8 layout-width-2-12"></div>-->
         <div class="layout-xs-hidden layout-sm-hidden layout-width-2-12"></div>
-        <!--<div id="skillsgraphcontainer" class="layout-col layout-xs-width-1-1 layout-sm-width-4-8 layout-width-5-12">-->
         <div id="skillsgraphcontainer" class="layout-col layout-xs-width-1-1 layout-sm-width-1-1 layout-width-5-12">
           <div class="layout-row layout-width-1-1 layout-justify-around">
             <span id="button_dev_fu" class="skillbutton layout-width-1-3 text-align-center">Dev-Fu</span>
@@ -295,7 +294,7 @@
         <a href="http://www.dynacalq.com"><div class="project layout-row layout-justify-center">Dynacalq</div></a>
         <a href="https://github.com/TravColbert" alt="Find Laminar.js on Github"><div class="project layout-row layout-justify-center">Laminar.js</div></a>
         <div class="project layout-row layout-justify-center">Laminar.Layouts</div>
-        <a href="https://github.com/TravColbert" alt="Find Rolw Call on Github"><div class="project layout-row layout-justify-center">Role Call</div></a>
+        <a href="https://github.com/TravColbert" alt="Find Role Call on Github"><div class="project layout-row layout-justify-center">Role Call</div></a>
         <a href="http://eventstaffing.co.uk" alt="Flair Event Staffing - Staff Training"><div class="project layout-row layout-justify-center">Flair Training</div></a>
       </div>
       <p>Check for my projects on Github.</p>
