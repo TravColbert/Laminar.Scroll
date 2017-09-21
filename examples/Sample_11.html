@@ -15,9 +15,6 @@
     <link href="https://fonts.googleapis.com/css?family=Cinzel|Comfortaa" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <style>
-      @mixin .redback {
-        background-color: red;
-      }
       body {
         /*color: rgb(255,250,240);*/
         background: -moz-radial-gradient(center, ellipse cover, rgba(255,248,117,1) 0%, rgba(214,207,64,1) 100%); /* ff3.6+ */
@@ -201,8 +198,7 @@
       }
       @media screen and (orientation: landscape) and (max-width:600px) {
         body {
-          include: .redback;
-          /* background: lightblue; */
+          background: lightblue;
         }
         #about, #skills, #projects, #contact {
           font-size: 1em;
