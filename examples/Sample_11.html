@@ -74,7 +74,7 @@
         flex: 0 0 auto;
       }
       .sectionheading {
-        font-size: 1.1em;
+        font-size: 1em;
         font-weight: bold;
         color: white;
         margin: 4.5em 0 0.5em;
@@ -269,9 +269,9 @@
     </div>
     <div id="skills" class="content shifted layout-col layout-width-1-1 layout-height-1-1">
       <div class="sectionheading">Skills</div>
-      <div class="layout-row layout-align-center">
-        <div id="skillsblurb" class="layout-col layout-xs-hidden layout-sm-hidden layout-width-5-12">
-          <div>I want to appeal to clients who value an honest and communicative partner. To that end I present to you my objective assessment of my strengths.</div>
+      <div class="layout-row layout-sm-col layout-align-center">
+        <div id="skillsblurb" class="layout-col layout-xs-hidden layout-width-5-12 layout-sm-width-1-1">
+          <div class="layout-sm-hidden">I want to appeal to clients who value an honest and communicative partner. To that end I present to you my objective assessment of my strengths.</div>
           <div>Use this handy chart to get an idea of what my strengths are.</div>
         </div>
         <div class="layout-xs-hidden layout-sm-hidden layout-width-2-12"></div>
@@ -325,12 +325,14 @@
         var skillRecordId = "skill_" + skillCount;
         var skillRecord = new Laminar.Widget({
           id:skillRecordId,
-          classlist:["layout-row","layout-sm-col","layout-width-1-1","skillrecord"],
+          // classlist:["layout-row","layout-sm-col","layout-width-1-1","skillrecord"],
+          classlist:["layout-row","layout-width-1-1","skillrecord"],
           parent:"#" + element
         }).update();
         var skillLabel = new Laminar.Widget({
           id:"skill_label_" + skillCount,
-          classlist:["layout-width-1-3","layout-justify-end","layout-align-center","layout-sm-width-1-1","layout-sm-justify-center","skilllabel"],
+          // classlist:["layout-width-1-3","layout-justify-end","layout-align-center","layout-sm-width-1-1","layout-sm-justify-center","skilllabel"],
+          classlist:["layout-width-1-3","layout-justify-end","layout-align-center","layout-sm-width-1-1","skilllabel"],
           content:skillsChart[fu][skillCount]["label"] + "&nbsp;&nbsp;",
           parent:"#" + skillRecordId
         }).update();
